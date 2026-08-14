@@ -1,0 +1,1255 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>University of Mowtown</title>
+
+<style>
+:root{
+ --bg:#f3efe6;
+ --paper:#fffdf8;
+ --dark:#171717;
+ --muted:#77736b;
+ --gold:#b99a62;
+ --line:#ddd6c9;
+ --green:#286a4b;
+ --red:#a23d3d;
+}
+*{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{
+ background:var(--bg);
+ color:var(--dark);
+ font-family:Arial,sans-serif;
+ line-height:1.5
+}
+button,input,select,textarea{font:inherit}
+button{cursor:pointer}
+a{text-decoration:none;color:inherit}
+
+/* NAV */
+nav{
+ position:fixed;
+ z-index:99;
+ top:16px;
+ left:50%;
+ transform:translateX(-50%);
+ width:min(1180px,calc(100% - 28px));
+ padding:13px 18px;
+ border-radius:18px;
+ background:rgba(255,255,255,.58);
+ backdrop-filter:blur(20px);
+ border:1px solid rgba(255,255,255,.8);
+ display:flex;
+ align-items:center;
+ justify-content:space-between;
+ box-shadow:0 15px 45px #00000010
+}
+.logo{font:bold 21px Georgia}
+.navlinks{display:flex;gap:24px;font-size:13px}
+.navlinks a:hover{color:var(--gold)}
+.menu{display:none;border:0;background:none;font-size:23px}
+
+/* HERO */
+.hero{
+ min-height:94vh;
+ padding:160px 7vw 65px;
+ color:white;
+ display:flex;
+ align-items:flex-end;
+ background:
+ linear-gradient(90deg,#000b,#0002),
+ url("https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=2200&q=85")
+ center/cover
+}
+.eyebrow,.label{
+ font-size:11px;
+ letter-spacing:.23em;
+ text-transform:uppercase;
+ color:#cdbb98
+}
+.hero h1{
+ font:500 clamp(58px,9vw,118px)/.87 Georgia;
+ letter-spacing:-.06em;
+ margin-top:18px
+}
+.hero p{max-width:600px;margin-top:25px;color:#ddd}
+.heroStats{
+ display:flex;
+ flex-wrap:wrap;
+ gap:35px;
+ margin-top:32px
+}
+.heroStats strong{display:block;font:25px Georgia}
+.heroStats span{font-size:10px;color:#bbb;text-transform:uppercase}
+
+/* GENERAL */
+section{padding:105px 7vw}
+.title{
+ font:500 clamp(40px,5vw,67px)/1 Georgia;
+ letter-spacing:-.04em
+}
+.muted{color:var(--muted)}
+.grid2{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:18px;
+ margin-top:38px
+}
+.panel{
+ background:#ffffff91;
+ border:1px solid #ffffffd9;
+ border-radius:25px;
+ padding:30px;
+ box-shadow:0 20px 60px #00000009
+}
+
+/* ABOUT */
+.about{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:75px;
+ align-items:center
+}
+.about p{
+ margin-top:25px;
+ max-width:600px;
+ line-height:1.9;
+ color:var(--muted)
+}
+.aboutImg{
+ min-height:500px;
+ border-radius:27px;
+ background:url("https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1300&q=85") center/cover
+}
+
+/* FACILITIES */
+.dark{background:#171717;color:white}
+.facilities{
+ display:grid;
+ grid-template-columns:1.2fr .8fr;
+ gap:18px;
+ margin-top:45px
+}
+.facility{
+ min-height:320px;
+ border-radius:23px;
+ background-size:cover;
+ background-position:center;
+ position:relative;
+ overflow:hidden
+}
+.facility:first-child{
+ min-height:660px;
+ grid-row:span 2
+}
+.facility:after{
+ content:"";
+ position:absolute;
+ inset:0;
+ background:linear-gradient(0deg,#000b,transparent 65%)
+}
+.facilityInfo{
+ position:absolute;
+ z-index:2;
+ left:25px;
+ bottom:24px
+}
+.facilityInfo h3{font:28px Georgia}
+
+/* STATS */
+.stats{
+ display:grid;
+ grid-template-columns:repeat(4,1fr);
+ gap:1px;
+ margin-top:40px;
+ background:var(--line)
+}
+.stat{
+ padding:34px;
+ background:var(--bg)
+}
+.stat strong{font:42px Georgia}
+.stat span{
+ display:block;
+ font-size:10px;
+ color:var(--muted);
+ text-transform:uppercase
+}
+
+/* FORMS */
+.form{display:grid;gap:13px;margin-top:20px}
+.form label{font-size:12px;font-weight:bold}
+input,select,textarea{
+ width:100%;
+ padding:13px 14px;
+ border:1px solid var(--line);
+ border-radius:13px;
+ background:#fff;
+ outline:none
+}
+textarea{min-height:130px;resize:vertical}
+input:focus,select:focus,textarea:focus{
+ border-color:var(--gold);
+ box-shadow:0 0 0 3px #b99a6220
+}
+.two{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px
+}
+.btn{
+ border:1px solid var(--dark);
+ background:var(--dark);
+ color:white;
+ border-radius:999px;
+ padding:12px 20px
+}
+.gold{
+ background:var(--gold);
+ border-color:var(--gold);
+ color:#171717
+}
+.status{
+ display:none;
+ padding:13px;
+ border-radius:12px;
+ margin-top:14px;
+ font-size:13px
+}
+.ok{display:block;background:#e8f5ed;color:var(--green)}
+.error{display:block;background:#faeaea;color:var(--red)}
+
+/* FACULTY */
+.facTools{
+ display:flex;
+ gap:10px;
+ margin-top:25px
+}
+.facSearch{
+ flex:1;
+ border-radius:999px
+}
+.facList{
+ display:grid;
+ grid-template-columns:repeat(3,1fr);
+ gap:12px;
+ max-height:650px;
+ overflow:auto;
+ margin-top:22px
+}
+.person{
+ background:#ffffffaa;
+ border:1px solid var(--line);
+ border-radius:17px;
+ padding:18px
+}
+.person strong{font:18px Georgia}
+.person small{display:block;color:var(--muted);margin-top:4px}
+
+/* LIVE */
+.liveBox{
+ margin-top:20px;
+ display:flex;
+ justify-content:space-between;
+ align-items:center;
+ flex-wrap:wrap;
+ gap:15px
+}
+.live{
+ display:inline-flex;
+ align-items:center;
+ gap:8px;
+ padding:8px 12px;
+ background:#ece8df;
+ border-radius:999px;
+ font-size:12px
+}
+.dot{
+ width:8px;
+ height:8px;
+ border-radius:50%;
+ background:#50a873
+}
+
+/* NEWS */
+.news{
+ margin-top:30px;
+ border-top:1px solid var(--line)
+}
+.newsItem{
+ display:grid;
+ grid-template-columns:55px 1fr 100px;
+ gap:15px;
+ padding:20px 0;
+ border-bottom:1px solid var(--line)
+}
+.newsItem b{font:20px Georgia;color:var(--gold)}
+.newsItem h3{font:19px Georgia}
+.newsItem small{color:var(--muted)}
+.newsDate{font-size:11px;color:var(--muted);text-align:right}
+
+/* MODAL */
+.modal{
+ position:fixed;
+ z-index:200;
+ inset:0;
+ display:none;
+ align-items:center;
+ justify-content:center;
+ padding:20px;
+ background:#0008;
+ backdrop-filter:blur(8px)
+}
+.modal.show{display:flex}
+.modalBox{
+ width:min(720px,100%);
+ max-height:90vh;
+ overflow:auto;
+ padding:30px;
+ background:var(--bg);
+ border-radius:27px
+}
+.close{
+ float:right;
+ border:0;
+ background:none;
+ font-size:26px
+}
+
+/* EXAM */
+.exam{
+ margin-top:20px;
+ background:white;
+ border:1px solid var(--line);
+ border-radius:22px;
+ padding:25px
+}
+.examHead{
+ display:flex;
+ justify-content:space-between;
+ gap:15px;
+ border-bottom:1px solid var(--line);
+ padding-bottom:18px
+}
+.examHead h3{font:26px Georgia}
+.examCode{font-weight:bold;color:var(--gold)}
+.examGrid{
+ display:grid;
+ grid-template-columns:1fr 1fr;
+ gap:12px;
+ margin-top:20px
+}
+.examInfo{
+ padding:14px;
+ border-radius:13px;
+ background:#f0ece4
+}
+.examInfo small{
+ display:block;
+ color:var(--muted);
+ font-size:10px;
+ text-transform:uppercase
+}
+.examInfo strong{display:block;margin-top:4px}
+
+/* FOOTER */
+footer{
+ background:#111;
+ color:white;
+ padding:70px 7vw
+}
+footer h2{font:48px Georgia}
+
+/* MOBILE */
+@media(max-width:850px){
+ .navlinks{display:none}
+ .navlinks.open{
+  display:flex;
+  position:absolute;
+  top:65px;
+  left:0;
+  right:0;
+  flex-direction:column;
+  padding:20px;
+  background:#fffffff5;
+  border-radius:17px
+ }
+ .menu{display:block}
+ .about,.grid2{grid-template-columns:1fr}
+ .facilities{grid-template-columns:1fr}
+ .facility:first-child{min-height:430px}
+ .stats{grid-template-columns:1fr 1fr}
+ .facList{grid-template-columns:1fr}
+ .two{grid-template-columns:1fr}
+ .newsItem{grid-template-columns:35px 1fr}
+ .newsDate{display:none}
+ section{padding:80px 24px}
+ .hero{padding:140px 24px 50px}
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<a class="logo" href="#">UM.</a>
+
+<div class="navlinks" id="navlinks">
+<a href="#about">About</a>
+<a href="#facilities">Facilities</a>
+<a href="#faculty">Faculty</a>
+<a href="#admission">Admissions</a>
+<a href="#exam">Exam Card</a>
+<a href="#news">News</a>
+</div>
+
+<button class="menu" onclick="toggleMenu()">☰</button>
+</nav>
+
+
+<header class="hero">
+
+<div>
+
+<div class="eyebrow">EST. 1932 · INDONESIA</div>
+
+<h1>
+University<br>
+of Mowtown
+</h1>
+
+<p>
+An institution built on knowledge, character and a vision
+that continues across generations.
+</p>
+
+<div class="heroStats">
+
+<div>
+<strong>47</strong>
+<span>Hectares</span>
+</div>
+
+<div>
+<strong>52,847</strong>
+<span>Active Students</span>
+</div>
+
+<div>
+<strong>497</strong>
+<span>Faculty Members</span>
+</div>
+
+<div>
+<strong id="applicantTop">8,421</strong>
+<span>Applicants</span>
+</div>
+
+</div>
+
+</div>
+
+</header>
+
+
+<section id="about">
+
+<div class="about">
+
+<div>
+
+<div class="label">THE UNIVERSITY</div>
+
+<h2 class="title">
+Built to endure.<br>
+Designed to inspire.
+</h2>
+
+<p>
+University of Mowtown adalah universitas besar dengan
+lingkungan akademik modern, fasilitas luas, dan komunitas
+mahasiswa dari berbagai daerah.
+</p>
+
+<br>
+
+<strong style="font:20px Georgia">
+Daffi Kautsar, M.A., Ph.D., LL.D.
+</strong>
+
+<div class="muted">
+Founding Rector & Chancellor · 1932
+</div>
+
+</div>
+
+<div class="aboutImg"></div>
+
+</div>
+
+</section>
+
+
+<section class="dark" id="facilities">
+
+<div class="label">CAMPUS LIFE</div>
+
+<h2 class="title">
+Spaces made<br>
+for possibility.
+</h2>
+
+<div class="facilities">
+
+<div class="facility"
+style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=85')">
+
+<div class="facilityInfo">
+<div class="label">01 · MAIN CAMPUS</div>
+<h3>Mowtown Grand Hall</h3>
+</div>
+
+</div>
+
+<div class="facility"
+style="background-image:url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1000&q=85')">
+
+<div class="facilityInfo">
+<div class="label">02 · KNOWLEDGE</div>
+<h3>Central Library</h3>
+</div>
+
+</div>
+
+<div class="facility"
+style="background-image:url('https://images.unsplash.com/photo-1576495199011-eb94736c0f5a?auto=format&fit=crop&w=1000&q=85')">
+
+<div class="facilityInfo">
+<div class="label">03 · RESEARCH</div>
+<h3>Research Center</h3>
+</div>
+
+</div>
+
+</div>
+
+</section>
+
+
+<section>
+
+<div class="label">MOWTOWN BY NUMBERS</div>
+
+<h2 class="title">
+A growing academic community.
+</h2>
+
+<div class="stats">
+
+<div class="stat">
+<strong>52,847</strong>
+<span>Active Students</span>
+</div>
+
+<div class="stat">
+<strong>497</strong>
+<span>Faculty Members</span>
+</div>
+
+<div class="stat">
+<strong>18</strong>
+<span>Faculties</span>
+</div>
+
+<div class="stat">
+<strong>126</strong>
+<span>Study Programs</span>
+</div>
+
+</div>
+
+</section>
+
+
+<!-- FACULTY -->
+
+<section id="faculty">
+
+<div class="label">ACADEMIC COMMUNITY</div>
+
+<h2 class="title">
+497 Faculty Members.
+</h2>
+
+<p class="muted" style="margin-top:15px">
+Cari nama dosen, fakultas, atau bidang keahlian.
+</p>
+
+<div class="facTools">
+
+<input
+id="facultySearch"
+class="facSearch"
+placeholder="Cari dosen / fakultas / bidang..."
+>
+
+<button class="btn" onclick="renderFaculty()">
+Cari
+</button>
+
+</div>
+
+<div class="facList" id="facultyList"></div>
+
+</section>
+
+
+<!-- ADMISSION -->
+
+<section id="admission">
+
+<div class="label">ADMISSIONS · PMB</div>
+
+<h2 class="title">
+Find your place at Mowtown.
+</h2>
+
+<div class="grid2">
+
+
+<!-- MINAT -->
+
+<div class="panel">
+
+<h2 style="font:28px Georgia">
+1 · Ceritakan Keunggulanmu
+</h2>
+
+<p class="muted" style="margin-top:10px">
+Halo calon mahasiswa University of Mowtown,
+ceritakan keunggulanmu agar sistem bisa
+merekomendasikan fakultas yang sesuai.
+</p>
+
+<form class="form" onsubmit="recommend(event)">
+
+<textarea
+id="strength"
+required
+placeholder="Contoh: saya suka menggambar, melukis, desain, membuat karya visual..."
+></textarea>
+
+<button class="btn gold">
+Analisis Minat & Bakat
+</button>
+
+</form>
+
+<div id="recommendStatus"></div>
+
+</div>
+
+
+<!-- DAFTAR -->
+
+<div class="panel">
+
+<h2 style="font:28px Georgia">
+2 · Forum Pendaftaran
+</h2>
+
+<form class="form" onsubmit="register(event)">
+
+<div class="two">
+
+<div>
+<label>Nama Lengkap</label>
+<input id="name" required>
+</div>
+
+<div>
+<label>NIK / ID Pendaftar</label>
+<input id="identity" minlength="8" required>
+</div>
+
+</div>
+
+
+<div class="two">
+
+<div>
+<label>Email</label>
+<input id="email" type="email" required>
+</div>
+
+<div>
+<label>No. WhatsApp Indonesia</label>
+<input id="phone" placeholder="08xxxxxxxxxx" required>
+</div>
+
+</div>
+
+
+<div>
+
+<label>Asal SMA / MA / SMK</label>
+
+<input
+id="school"
+placeholder="Contoh: SMA Negeri 3 Bandung"
+required
+>
+
+</div>
+
+
+<div class="two">
+
+<div>
+
+<label>Fakultas Pilihan</label>
+
+<select id="facultyChoice" required></select>
+
+</div>
+
+<div>
+
+<label>Jalur Pendaftaran</label>
+
+<select id="path">
+
+<option>UKT Regular</option>
+<option>UKT Fast Track</option>
+<option>Fully Funded Scholarship</option>
+
+</select>
+
+</div>
+
+</div>
+
+
+<button class="btn">
+Kirim Pendaftaran
+</button>
+
+</form>
+
+<div id="registerStatus"></div>
+
+</div>
+
+</div>
+
+
+<div class="panel liveBox">
+
+<div>
+
+<h2 style="font:27px Georgia">
+Live Pendaftar
+</h2>
+
+<p class="muted">
+Jumlah pendaftar diperbarui otomatis.
+</p>
+
+</div>
+
+<div class="live">
+
+<i class="dot"></i>
+
+<span id="liveApplicants">
+LIVE
+</span>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- EXAM -->
+
+<section id="exam">
+
+<div class="label">
+KETAT MOWTOWN
+</div>
+
+<h2 class="title">
+Kartu Ujian.
+</h2>
+
+<div class="grid2">
+
+<div class="panel">
+
+<h2 style="font:28px Georgia">
+3 · Ambil Kartu Ujian
+</h2>
+
+<p class="muted" style="margin-top:10px">
+Masukkan nomor ujian yang diberikan setelah
+pendaftaran berhasil.
+</p>
+
+<form class="form" onsubmit="verifyExam(event)">
+
+<input
+id="examNumber"
+placeholder="Contoh: UM-26-X7K92P"
+required
+>
+
+<button class="btn">
+Verifikasi Nomor Ujian
+</button>
+
+</form>
+
+<div id="examStatus"></div>
+
+</div>
+
+
+<div class="panel">
+
+<h2 style="font:28px Georgia">
+Sistem Ujian
+</h2>
+
+<p class="muted" style="margin-top:10px">
+Nomor ujian dibuat secara acak dan terhubung
+dengan data pendaftar.
+</p>
+
+<br>
+
+<ul class="muted" style="padding-left:18px">
+<li>Nomor ujian tidak bisa dibuat sembarangan.</li>
+<li>Profil mengikuti data pendaftaran.</li>
+<li>Ruangan dan kursi ditentukan sistem.</li>
+<li>Pembimbing ditentukan sistem.</li>
+</ul>
+
+</div>
+
+</div>
+
+</section>
+
+
+<!-- NEWS -->
+
+<section id="news">
+
+<div class="label">MOWTOWN TODAY</div>
+
+<h2 class="title">
+Latest News.
+</h2>
+
+<div class="news" id="newsList"></div>
+
+</section>
+
+
+<footer>
+
+<div class="label">
+UNIVERSITY OF MOWTOWN
+</div>
+
+<h2>
+Knowledge.<br>
+Character.<br>
+Future.
+</h2>
+
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+
+<div class="modalBox">
+
+<button class="close" onclick="closeModal()">
+×
+</button>
+
+<div id="modalContent"></div>
+
+</div>
+
+</div>
+
+
+<script>
+
+/* =========================
+   DATA FAKULTAS
+========================= */
+
+const faculties=[
+"Fakultas Kedokteran",
+"Fakultas Kedokteran Gigi",
+"Fakultas Keperawatan",
+"Fakultas Kesehatan Masyarakat",
+"Fakultas Farmasi",
+"Fakultas Psikologi",
+"Fakultas Hukum",
+"Fakultas Ekonomi dan Bisnis",
+"Fakultas Ilmu Sosial dan Ilmu Politik",
+"Fakultas Ilmu Komunikasi",
+"Fakultas Pendidikan",
+"Fakultas Bahasa dan Sastra",
+"Fakultas Teknik",
+"Fakultas Ilmu Komputer",
+"Fakultas Matematika dan Sains",
+"Fakultas Pertanian",
+"Fakultas Seni dan Desain",
+"Fakultas Ilmu Keolahragaan"
+];
+
+
+/* =========================
+   NAMA DOSEN
+========================= */
+
+const firstNames=[
+"Aditya","Nadine","Farrel","Armand","Citra",
+"Raka","Keisha","Rizky","Alessandra","Bagas",
+"Rania","Galih","Naufal","Salsabila","Reza",
+"Anindya","Dimas","Fauzan","Putri","Rafi"
+];
+
+const lastNames=[
+"Pranata","Suryana","Adinata","Rahardian",
+"Maharani","Wijaya","Anindya","Mahendra",
+"Putri","Ramadhan","Prameswari","Wicaksana",
+"Adhitama","Kirana","Mahardika"
+];
+
+const fields=[
+"Kedokteran",
+"Ekonomi",
+"Hukum",
+"Komunikasi",
+"Teknik",
+"Ilmu Komputer",
+"Matematika",
+"Biologi",
+"Psikologi",
+"Seni dan Desain",
+"Pendidikan",
+"Pertanian"
+];
+
+let facultyData=[];
+
+for(let i=0;i<497;i++){
+
+ facultyData.push({
+
+ name:
+ firstNames[i%firstNames.length]+" "+
+ lastNames[(i*3)%lastNames.length]+" "+
+ String.fromCharCode(65+(i%26))+".",
+
+ title:
+ i%7===0?"Prof.":
+ i%3===0?"Dr.":"Drs.",
+
+ faculty:
+ faculties[i%faculties.length],
+
+ field:
+ fields[i%fields.length]
+
+ });
+
+}
+
+
+/* =========================
+   FAKULTAS SELECT
+========================= */
+
+const facultySelect=document.getElementById("facultyChoice");
+
+faculties.forEach(f=>{
+ const option=document.createElement("option");
+ option.textContent=f;
+ facultySelect.appendChild(option);
+});
+
+
+/* =========================
+   TAMPILKAN DOSEN
+========================= */
+
+function renderFaculty(){
+
+ const query=
+ document.getElementById("facultySearch")
+ .value
+ .toLowerCase()
+ .trim();
+
+ const results=facultyData.filter(d=>
+
+ !query ||
+
+ (
+ d.name+" "+
+ d.faculty+" "+
+ d.field
+ )
+ .toLowerCase()
+ .includes(query)
+
+ );
+
+ document.getElementById("facultyList").innerHTML=
+ results.map(d=>`
+
+ <div class="person">
+
+ <strong>
+ ${d.title} ${d.name}
+ </strong>
+
+ <small>
+ ${d.faculty}
+ </small>
+
+ <small>
+ Bidang: ${d.field}
+ </small>
+
+ </div>
+
+ `).join("");
+
+}
+
+renderFaculty();
+
+document
+.getElementById("facultySearch")
+.addEventListener("input",renderFaculty);
+
+
+/* =========================
+   REKOMENDASI MINAT
+========================= */
+
+const recommendationRules=[
+
+ [["melukis","gambar","menggambar","seni","desain","desainer","ilustrasi"],
+ "Fakultas Seni dan Desain"],
+
+ [["coding","programming","program","komputer","website","aplikasi","teknologi"],
+ "Fakultas Ilmu Komputer"],
+
+ [["dokter","medis","kesehatan","pasien","rumah sakit"],
+ "Fakultas Kedokteran"],
+
+ [["hukum","pengacara","keadilan","peraturan"],
+ "Fakultas Hukum"],
+
+ [["bisnis","jualan","usaha","ekonomi","keuangan"],
+ "Fakultas Ekonomi dan Bisnis"],
+
+ [["mengajar","guru","anak-anak","pendidikan"],
+ "Fakultas Pendidikan"],
+
+ [["teknik","mesin","bangunan","robot"],
+ "Fakultas Teknik"],
+
+ [["musik","menyanyi","alat musik"],
+ "Fakultas Seni dan Desain"],
+
+ [["olahraga","atlet","lari","basket","sepakbola"],
+ "Fakultas Ilmu Keolahragaan"]
+
+];
+
+
+function recommend(e){
+
+ e.preventDefault();
+
+ const text=
+ document
+ .getElementById("strength")
+ .value
+ .toLowerCase();
+
+ let result="Fakultas Ilmu Sosial dan Ilmu Politik";
+ let found="minat umum";
+
+ for(const rule of recommendationRules){
+
+   for(const keyword of rule[0]){
+
+     if(text.includes(keyword)){
+
+       result=rule[1];
+       found=keyword;
+       break;
+
+     }
+
+   }
+
+   if(result===rule[1] && found!=="minat umum")
+   break;
+
+ }
+
+ document.getElementById("facultyChoice").value=result;
+
+ const box=document.getElementById("recommendStatus");
+
+ box.className="status ok";
+
+ box.innerHTML=`
+
+ <b>Rekomendasi sistem: ${result}</b><br>
+
+ Sistem mendeteksi kata kunci
+ <b>"${found}"</b> dari cerita kamu.
+
+ <br><br>
+
+ <small>
+ Kamu tetap bebas mengganti fakultas pilihan saat mendaftar.
+ </small>
+
+ `;
+
+}
+
+
+/* =========================
+   VALIDASI NOMOR TELEPON
+========================= */
+
+function validPhone(phone){
+
+ const clean=
+ phone
+ .replace(/\s/g,"")
+ .replace(/-/g,"");
+
+ return /^(08|\+628|628)[0-9]{8,12}$/.test(clean);
+
+}
+
+
+/* =========================
+   VALIDASI SEKOLAH
+========================= */
+
+const validSchoolPatterns=[
+
+ /^sma\s/i,
+ /^smk\s/i,
+ /^man\s/i,
+ /^ma\s/i,
+ /^sman\s/i,
+ /^smkn\s/i
+
+];
+
+function validSchool(name){
+
+ return validSchoolPatterns.some(
+ pattern=>pattern.test(name.trim())
+ );
+
+}
+
+
+/* =========================
+   NOMOR UJIAN ACAK
+========================= */
+
+function generateExamNumber(){
+
+ const chars=
+ "ABCDEFGHJKLMNPQRSTUVWXYZ23456789";
+
+ let code="";
+
+ for(let i=0;i<6;i++){
+
+   code+=chars[
+    Math.floor(Math.random()*chars.length)
+   ];
+
+ }
+
+ return "UM-26-"+code;
+
+}
+
+
+/* =========================
+   RANDOM
+========================= */
+
+function random(arr){
+
+ return arr[
+  Math.floor(Math.random()*arr.length)
+ ];
+
+}
+
+
+/* =========================
+   DAFTAR
+========================= */
+
+function register(e){
+
+ e.preventDefault();
+
+ const name=
+ document.getElementById("name").value.trim();
+
+ const identity=
+ document.getElementById("identity").value.trim();
+
+ const email=
+ document.getElementById("email").value.trim();
+
+ const phone=
+ document.getElementById("phone").value.trim();
+
+ const school=
+ document.getElementById("school").value.trim();
+
+ const faculty=
+ document.getElementById("facultyChoice").value;
+
+ const path=
+ document.getElementById("path").value;
+
+
+ if(!validPhone(phone)){
+
+   showStatus(
+    "registerStatus",
+    "error",
+    "Nomor telepon tidak 
