@@ -1,0 +1,777 @@
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap');
+
+:root{
+  --bg:#07111f;
+  --bg2:#0b1728;
+  --glass:rgba(255,255,255,.075);
+  --glass2:rgba(255,255,255,.11);
+  --line:rgba(255,255,255,.14);
+  --text:#f4f7fb;
+  --muted:#9aa9bb;
+  --blue:#54b9ff;
+  --blue2:#2677ff;
+  --cyan:#7ee7ff;
+  --shadow:0 25px 70px rgba(0,0,0,.35);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  min-height:100vh;
+  background:
+    radial-gradient(circle at 10% 10%,rgba(38,119,255,.18),transparent 32%),
+    radial-gradient(circle at 90% 20%,rgba(84,185,255,.13),transparent 28%),
+    radial-gradient(circle at 50% 90%,rgba(126,231,255,.08),transparent 30%),
+    var(--bg);
+  color:var(--text);
+  font-family:"DM Sans",sans-serif;
+  line-height:1.7;
+  overflow-x:hidden;
+}
+
+body::before{
+  content:"";
+  position:fixed;
+  inset:-30%;
+  pointer-events:none;
+  background:
+    radial-gradient(circle,rgba(84,185,255,.055) 0 1px,transparent 1px);
+  background-size:32px 32px;
+  opacity:.35;
+  z-index:-1;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button,
+input,
+select,
+textarea{
+  font:inherit;
+}
+
+button{
+  cursor:pointer;
+}
+
+img{
+  max-width:100%;
+  display:block;
+}
+
+/* =========================
+   GLASS
+========================= */
+
+.glass,
+nav,
+header,
+.card,
+section,
+.modal-box,
+.facility-card,
+.teacher-card,
+.news-card,
+.rank-card,
+.price-card,
+.form-card,
+.exam-card{
+  background:linear-gradient(
+    135deg,
+    rgba(255,255,255,.105),
+    rgba(255,255,255,.035)
+  );
+  border:1px solid var(--line);
+  backdrop-filter:blur(24px);
+  -webkit-backdrop-filter:blur(24px);
+  box-shadow:var(--shadow);
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav,
+.navbar,
+header{
+  position:sticky;
+  top:14px;
+  z-index:1000;
+  width:min(1180px,calc(100% - 28px));
+  margin:14px auto;
+  border-radius:24px;
+}
+
+nav{
+  min-height:76px;
+  padding:14px 22px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+}
+
+nav a{
+  color:#cbd5e1;
+  font-weight:600;
+  transition:.25s;
+}
+
+nav a:hover{
+  color:white;
+}
+
+.logo,
+.brand{
+  display:flex;
+  align-items:center;
+  gap:12px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.logo img,
+.brand img{
+  width:44px;
+  height:44px;
+  border-radius:50%;
+  object-fit:cover;
+}
+
+.logo::before,
+.brand::before{
+  content:"UM";
+  width:44px;
+  height:44px;
+  display:grid;
+  place-items:center;
+  border-radius:50%;
+  background:linear-gradient(135deg,var(--cyan),var(--blue2));
+  color:white;
+  font-weight:800;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero{
+  position:relative;
+  width:min(1180px,calc(100% - 28px));
+  min-height:650px;
+  margin:30px auto 80px;
+  padding:90px 7%;
+  border-radius:38px;
+  overflow:hidden;
+  display:flex;
+  align-items:center;
+}
+
+.hero::before{
+  content:"";
+  position:absolute;
+  width:500px;
+  height:500px;
+  right:-180px;
+  top:-180px;
+  background:radial-gradient(circle,var(--blue),transparent 68%);
+  opacity:.2;
+  filter:blur(30px);
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  width:300px;
+  height:300px;
+  left:-120px;
+  bottom:-120px;
+  background:radial-gradient(circle,var(--cyan),transparent 70%);
+  opacity:.1;
+  filter:blur(30px);
+}
+
+.hero h1{
+  position:relative;
+  z-index:1;
+  max-width:850px;
+  font-family:"Playfair Display",serif;
+  font-size:clamp(48px,8vw,96px);
+  line-height:1;
+  letter-spacing:-.045em;
+}
+
+.hero h1 span{
+  color:var(--blue);
+}
+
+.hero p{
+  position:relative;
+  z-index:1;
+  max-width:650px;
+  margin-top:28px;
+  color:var(--muted);
+  font-size:18px;
+}
+
+.hero button,
+.hero .btn{
+  position:relative;
+  z-index:2;
+  margin-top:32px;
+}
+
+/* =========================
+   BUTTON
+========================= */
+
+button,
+.btn,
+a.button{
+  border:0;
+  border-radius:14px;
+  padding:13px 22px;
+  color:white;
+  font-weight:700;
+  background:linear-gradient(135deg,var(--blue2),var(--blue));
+  box-shadow:0 12px 30px rgba(38,119,255,.25);
+  transition:transform .2s,box-shadow .2s,filter .2s;
+}
+
+button:hover,
+.btn:hover,
+a.button:hover{
+  transform:translateY(-2px);
+  filter:brightness(1.08);
+  box-shadow:0 16px 35px rgba(38,119,255,.35);
+}
+
+button:active,
+.btn:active{
+  transform:translateY(0);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section{
+  width:min(1180px,calc(100% - 28px));
+  margin:30px auto;
+  padding:65px 6%;
+  border-radius:34px;
+}
+
+section > h1,
+section > h2,
+.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(32px,5vw,56px);
+  line-height:1.1;
+  letter-spacing:-.03em;
+  margin-bottom:14px;
+}
+
+section > p,
+.section-subtitle{
+  color:var(--muted);
+  max-width:720px;
+  margin-bottom:35px;
+}
+
+/* =========================
+   GRID
+========================= */
+
+.grid,
+.cards,
+.facilities,
+.teachers,
+.news,
+.rankings,
+.programs{
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+.card,
+.facility-card,
+.teacher-card,
+.news-card,
+.rank-card,
+.price-card,
+.form-card,
+.exam-card{
+  border-radius:24px;
+  padding:25px;
+  transition:transform .25s,border-color .25s,background .25s;
+}
+
+.card:hover,
+.facility-card:hover,
+.teacher-card:hover,
+.news-card:hover,
+.rank-card:hover,
+.price-card:hover,
+.exam-card:hover{
+  transform:translateY(-6px);
+  border-color:rgba(84,185,255,.4);
+  background:rgba(255,255,255,.105);
+}
+
+.card h3,
+.facility-card h3,
+.teacher-card h3,
+.news-card h3,
+.rank-card h3,
+.price-card h3{
+  margin:12px 0 8px;
+  font-size:20px;
+}
+
+.card p,
+.facility-card p,
+.teacher-card p,
+.news-card p,
+.rank-card p,
+.price-card p{
+  color:var(--muted);
+}
+
+/* =========================
+   FACILITIES
+========================= */
+
+.facility-card{
+  overflow:hidden;
+  padding:0;
+}
+
+.facility-card img{
+  width:100%;
+  height:230px;
+  object-fit:cover;
+}
+
+.facility-card > div{
+  padding:22px;
+}
+
+/* =========================
+   TEACHERS
+========================= */
+
+.teacher-card{
+  text-align:left;
+}
+
+.teacher-card img{
+  width:72px;
+  height:72px;
+  border-radius:50%;
+  object-fit:cover;
+  margin-bottom:15px;
+  border:2px solid rgba(126,231,255,.4);
+}
+
+.teacher-card small{
+  color:var(--blue);
+  font-weight:700;
+}
+
+/* =========================
+   RANKING
+========================= */
+
+.rank-card{
+  position:relative;
+}
+
+.rank-card:first-child{
+  border-color:rgba(126,231,255,.5);
+  background:linear-gradient(
+    135deg,
+    rgba(126,231,255,.15),
+    rgba(38,119,255,.05)
+  );
+}
+
+.rank-number{
+  font-size:40px;
+  font-weight:800;
+  color:var(--blue);
+}
+
+/* =========================
+   NEWS
+========================= */
+
+.news-card{
+  min-height:210px;
+}
+
+.news-card time{
+  color:var(--blue);
+  font-size:13px;
+  font-weight:700;
+}
+
+.news-card a{
+  display:inline-block;
+  margin-top:15px;
+  color:var(--cyan);
+  font-weight:700;
+}
+
+/* =========================
+   FORMS
+========================= */
+
+form{
+  display:grid;
+  gap:18px;
+}
+
+label{
+  display:block;
+  color:#dce5ef;
+  font-weight:600;
+  margin-bottom:7px;
+}
+
+input,
+select,
+textarea{
+  width:100%;
+  padding:15px 17px;
+  border-radius:15px;
+  border:1px solid var(--line);
+  outline:none;
+  color:white;
+  background:rgba(0,0,0,.18);
+  transition:.2s;
+}
+
+input::placeholder,
+textarea::placeholder{
+  color:#708096;
+}
+
+input:focus,
+select:focus,
+textarea:focus{
+  border-color:var(--blue);
+  box-shadow:0 0 0 4px rgba(84,185,255,.1);
+}
+
+select option{
+  color:#111;
+}
+
+/* =========================
+   MODAL
+========================= */
+
+.modal{
+  position:fixed;
+  inset:0;
+  z-index:2000;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  padding:20px;
+  background:rgba(2,8,18,.7);
+  backdrop-filter:blur(14px);
+  -webkit-backdrop-filter:blur(14px);
+}
+
+.modal.hidden{
+  display:none;
+}
+
+.modal-box{
+  position:relative;
+  width:min(700px,100%);
+  max-height:90vh;
+  overflow:auto;
+  border-radius:28px;
+  padding:35px;
+}
+
+.close-button{
+  position:absolute;
+  right:18px;
+  top:18px;
+  width:40px;
+  height:40px;
+  padding:0;
+  border-radius:50%;
+  display:grid;
+  place-items:center;
+  background:rgba(255,255,255,.08);
+  box-shadow:none;
+}
+
+.close-button:hover{
+  background:rgba(255,255,255,.15);
+}
+
+/* =========================
+   PRICE / UKT
+========================= */
+
+.price-card{
+  position:relative;
+}
+
+.price-card.featured{
+  border-color:rgba(84,185,255,.5);
+}
+
+.price{
+  font-size:32px;
+  font-weight:800;
+  color:white;
+  margin:15px 0;
+}
+
+.price span{
+  font-size:14px;
+  color:var(--muted);
+  font-weight:500;
+}
+
+.price-card ul{
+  list-style:none;
+  display:grid;
+  gap:10px;
+  margin:20px 0;
+}
+
+.price-card li{
+  color:#c9d4e2;
+}
+
+.price-card li::before{
+  content:"✓";
+  color:var(--cyan);
+  font-weight:800;
+  margin-right:9px;
+}
+
+/* =========================
+   EXAM CARD
+========================= */
+
+.exam-card{
+  border-color:rgba(84,185,255,.4);
+}
+
+.exam-card strong{
+  color:var(--blue);
+}
+
+.exam-info{
+  display:grid;
+  grid-template-columns:repeat(2,1fr);
+  gap:15px;
+  margin-top:20px;
+}
+
+.exam-info div{
+  padding:15px;
+  border-radius:15px;
+  background:rgba(255,255,255,.05);
+}
+
+.exam-info span{
+  display:block;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table{
+  width:100%;
+  border-collapse:collapse;
+  overflow:hidden;
+  border-radius:18px;
+  background:rgba(255,255,255,.04);
+}
+
+th,
+td{
+  padding:15px;
+  text-align:left;
+  border-bottom:1px solid var(--line);
+}
+
+th{
+  color:var(--blue);
+  font-size:13px;
+  text-transform:uppercase;
+  letter-spacing:.08em;
+}
+
+td{
+  color:#d5dfeb;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer{
+  width:min(1180px,calc(100% - 28px));
+  margin:60px auto 25px;
+  padding:45px 6%;
+  border-radius:30px;
+  background:rgba(255,255,255,.045);
+  border:1px solid var(--line);
+}
+
+footer p{
+  color:var(--muted);
+}
+
+footer a{
+  color:#cbd8e8;
+}
+
+footer a:hover{
+  color:var(--cyan);
+}
+
+/* =========================
+   SCROLLBAR
+========================= */
+
+::-webkit-scrollbar{
+  width:8px;
+}
+
+::-webkit-scrollbar-track{
+  background:var(--bg);
+}
+
+::-webkit-scrollbar-thumb{
+  background:rgba(84,185,255,.35);
+  border-radius:99px;
+}
+
+::-webkit-scrollbar-thumb:hover{
+  background:rgba(84,185,255,.6);
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media(max-width:850px){
+
+  nav,
+  .navbar,
+  header{
+    width:calc(100% - 20px);
+    top:8px;
+    margin:8px auto;
+  }
+
+  nav{
+    padding:12px 15px;
+  }
+
+  nav a:not(.logo):not(.brand){
+    display:none;
+  }
+
+  .hero{
+    width:calc(100% - 20px);
+    min-height:560px;
+    padding:65px 28px;
+    border-radius:28px;
+    margin-top:20px;
+  }
+
+  .hero h1{
+    font-size:54px;
+  }
+
+  section{
+    width:calc(100% - 20px);
+    padding:45px 24px;
+    border-radius:26px;
+  }
+
+  .grid,
+  .cards,
+  .facilities,
+  .teachers,
+  .news,
+  .rankings,
+  .programs{
+    grid-template-columns:1fr;
+  }
+
+  .exam-info{
+    grid-template-columns:1fr;
+  }
+
+  .modal-box{
+    padding:28px 20px;
+  }
+
+  footer{
+    width:calc(100% - 20px);
+  }
+}
+
+@media(max-width:480px){
+
+  body{
+    font-size:15px;
+  }
+
+  .hero h1{
+    font-size:45px;
+  }
+
+  .hero p{
+    font-size:16px;
+  }
+
+  section > h1,
+  section > h2,
+  .section-title{
+    font-size:34px;
+  }
+
+  .card,
+  .facility-card,
+  .teacher-card,
+  .news-card,
+  .rank-card,
+  .price-card,
+  .form-card,
+  .exam-card{
+    border-radius:20px;
+  }
+}
