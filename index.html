@@ -1,0 +1,998 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>University of Mowtown</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:wght@500;600;700&display=swap" rel="stylesheet">
+
+<style>
+:root{
+  --ivory:#f4f0e8;
+  --cream:#ebe5da;
+  --charcoal:#171717;
+  --muted:#706d66;
+  --gold:#c8a96b;
+  --glass:rgba(255,255,255,.48);
+  --line:rgba(23,23,23,.12);
+}
+
+*{
+  box-sizing:border-box;
+  margin:0;
+  padding:0;
+}
+
+html{
+  scroll-behavior:smooth;
+}
+
+body{
+  background:var(--ivory);
+  color:var(--charcoal);
+  font-family:"DM Sans",sans-serif;
+  overflow-x:hidden;
+}
+
+a{
+  color:inherit;
+  text-decoration:none;
+}
+
+button{
+  font:inherit;
+}
+
+/* NAVBAR */
+
+.navbar{
+  position:fixed;
+  top:18px;
+  left:50%;
+  transform:translateX(-50%);
+  width:min(1180px,calc(100% - 32px));
+  height:64px;
+  display:flex;
+  align-items:center;
+  justify-content:space-between;
+  padding:0 22px;
+  border:1px solid rgba(255,255,255,.45);
+  background:rgba(255,255,255,.38);
+  backdrop-filter:blur(22px);
+  -webkit-backdrop-filter:blur(22px);
+  border-radius:18px;
+  z-index:1000;
+  box-shadow:0 12px 35px rgba(0,0,0,.08);
+}
+
+.logo{
+  font-family:"Playfair Display",serif;
+  font-size:19px;
+  font-weight:700;
+  letter-spacing:.04em;
+}
+
+.nav-links{
+  display:flex;
+  gap:28px;
+  font-size:13px;
+  color:#3e3c38;
+}
+
+.nav-links a:hover{
+  color:var(--gold);
+}
+
+.menu-btn{
+  display:none;
+  border:0;
+  background:none;
+  font-size:24px;
+  cursor:pointer;
+}
+
+/* HERO */
+
+.hero{
+  min-height:100vh;
+  position:relative;
+  display:flex;
+  align-items:flex-end;
+  padding:150px 7vw 70px;
+  overflow:hidden;
+  background:
+    linear-gradient(90deg,rgba(10,10,10,.72),rgba(10,10,10,.18)),
+    url("https://images.unsplash.com/photo-1564981797816-1043664bf78d?auto=format&fit=crop&w=2200&q=85")
+    center/cover;
+  color:white;
+}
+
+.hero::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:
+    radial-gradient(circle at 82% 40%,rgba(200,169,107,.18),transparent 24%),
+    linear-gradient(0deg,rgba(0,0,0,.48),transparent 55%);
+}
+
+.hero-content{
+  position:relative;
+  z-index:2;
+  max-width:900px;
+}
+
+.eyebrow{
+  font-size:12px;
+  letter-spacing:.28em;
+  text-transform:uppercase;
+  color:#e2d6bc;
+  margin-bottom:20px;
+}
+
+.hero h1{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(58px,9vw,128px);
+  line-height:.86;
+  font-weight:500;
+  letter-spacing:-.055em;
+}
+
+.hero-sub{
+  margin-top:30px;
+  max-width:580px;
+  font-size:16px;
+  line-height:1.7;
+  color:rgba(255,255,255,.8);
+}
+
+.hero-meta{
+  margin-top:40px;
+  display:flex;
+  gap:38px;
+  flex-wrap:wrap;
+}
+
+.hero-meta strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:25px;
+  color:white;
+}
+
+.hero-meta span{
+  font-size:10px;
+  text-transform:uppercase;
+  letter-spacing:.16em;
+  color:rgba(255,255,255,.58);
+}
+
+/* GENERAL */
+
+section{
+  padding:120px 7vw;
+}
+
+.section-label{
+  color:var(--gold);
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.25em;
+  margin-bottom:18px;
+}
+
+.section-title{
+  font-family:"Playfair Display",serif;
+  font-size:clamp(40px,5vw,70px);
+  font-weight:500;
+  line-height:1;
+  letter-spacing:-.04em;
+}
+
+/* INTRO */
+
+.intro{
+  display:grid;
+  grid-template-columns:1fr 1fr;
+  gap:90px;
+  align-items:center;
+}
+
+.intro-text p{
+  margin-top:28px;
+  max-width:550px;
+  color:var(--muted);
+  line-height:1.9;
+}
+
+.founder{
+  margin-top:35px;
+  padding-top:25px;
+  border-top:1px solid var(--line);
+}
+
+.founder strong{
+  display:block;
+  font-family:"Playfair Display",serif;
+  font-size:20px;
+}
+
+.founder span{
+  color:var(--muted);
+  font-size:12px;
+}
+
+.intro-image{
+  min-height:540px;
+  border-radius:30px;
+  background:
+    linear-gradient(0deg,rgba(0,0,0,.18),transparent),
+    url("https://images.unsplash.com/photo-1606761568499-6d2451b23c66?auto=format&fit=crop&w=1200&q=85")
+    center/cover;
+}
+
+/* FACILITIES */
+
+.dark-section{
+  background:var(--charcoal);
+  color:white;
+}
+
+.facility-grid{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:1.25fr .75fr;
+  gap:20px;
+}
+
+.facility{
+  min-height:340px;
+  position:relative;
+  overflow:hidden;
+  border-radius:24px;
+  background-size:cover;
+  background-position:center;
+}
+
+.facility:first-child{
+  grid-row:span 2;
+  min-height:700px;
+}
+
+.facility::after{
+  content:"";
+  position:absolute;
+  inset:0;
+  background:linear-gradient(0deg,rgba(0,0,0,.75),transparent 65%);
+}
+
+.facility-info{
+  position:absolute;
+  bottom:28px;
+  left:28px;
+  z-index:2;
+}
+
+.facility-info small{
+  color:#d7c49b;
+  text-transform:uppercase;
+  letter-spacing:.15em;
+  font-size:10px;
+}
+
+.facility-info h3{
+  font-family:"Playfair Display",serif;
+  font-size:30px;
+  margin-top:6px;
+}
+
+/* STATS */
+
+.stats{
+  display:grid;
+  grid-template-columns:repeat(4,1fr);
+  gap:1px;
+  background:var(--line);
+  margin-top:55px;
+}
+
+.stat{
+  background:var(--ivory);
+  padding:38px 28px;
+}
+
+.stat strong{
+  font-family:"Playfair Display",serif;
+  font-size:43px;
+  font-weight:500;
+}
+
+.stat span{
+  display:block;
+  margin-top:6px;
+  font-size:11px;
+  text-transform:uppercase;
+  letter-spacing:.12em;
+  color:var(--muted);
+}
+
+/* FACULTY */
+
+.faculty-head{
+  display:flex;
+  justify-content:space-between;
+  align-items:end;
+  gap:30px;
+}
+
+.outline-btn{
+  border:1px solid var(--line);
+  background:transparent;
+  padding:13px 20px;
+  border-radius:100px;
+  cursor:pointer;
+}
+
+.outline-btn:hover{
+  background:var(--charcoal);
+  color:white;
+}
+
+.faculty-grid{
+  margin-top:50px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:20px;
+}
+
+.faculty-card{
+  background:white;
+  padding:28px;
+  border-radius:22px;
+  border:1px solid var(--line);
+}
+
+.avatar{
+  height:210px;
+  border-radius:16px;
+  margin-bottom:22px;
+  background:
+    linear-gradient(135deg,#d8d3c8,#f5f1e9);
+  display:flex;
+  align-items:center;
+  justify-content:center;
+  font-family:"Playfair Display",serif;
+  font-size:50px;
+  color:#aaa39a;
+}
+
+.faculty-card h3{
+  font-family:"Playfair Display",serif;
+  font-size:23px;
+}
+
+.faculty-card p{
+  margin-top:7px;
+  color:var(--muted);
+  font-size:13px;
+}
+
+/* ADMISSION */
+
+.admission{
+  background:var(--cream);
+}
+
+.admission-grid{
+  margin-top:55px;
+  display:grid;
+  grid-template-columns:repeat(3,1fr);
+  gap:18px;
+}
+
+.admission-card{
+  padding:35px;
+  min-height:360px;
+  background:rgba(255,255,255,.52);
+  border:1px solid rgba(255,255,255,.75);
+  backdrop-filter:blur(18px);
+  border-radius:25px;
+  transition:.3s;
+}
+
+.admission-card:hover{
+  transform:translateY(-6px);
+  box-shadow:0 25px 60px rgba(0,0,0,.08);
+}
+
+.admission-card .number{
+  color:var(--gold);
+  font-size:12px;
+}
+
+.admission-card h3{
+  margin-top:80px;
+  font-family:"Playfair Display",serif;
+  font-size:32px;
+}
+
+.admission-card p{
+  margin-top:15px;
+  color:var(--muted);
+  line-height:1.7;
+}
+
+.admission-card button{
+  margin-top:28px;
+  border:0;
+  background:var(--charcoal);
+  color:white;
+  border-radius:100px;
+  padding:12px 18px;
+  cursor:pointer;
+}
+
+/* NEWS */
+
+.news-list{
+  margin-top:50px;
+  border-top:1px solid var(--line);
+}
+
+.news-item{
+  display:grid;
+  grid-template-columns:80px 1fr 120px;
+  gap:25px;
+  align-items:center;
+  padding:25px 0;
+  border-bottom:1px solid var(--line);
+}
+
+.news-number{
+  color:var(--gold);
+  font-family:"Playfair Display",serif;
+  font-size:20px;
+}
+
+.news-item h3{
+  font-family:"Playfair Display",serif;
+  font-size:24px;
+  font-weight:500;
+}
+
+.news-item p{
+  color:var(--muted);
+  font-size:12px;
+  margin-top:6px;
+}
+
+.news-date{
+  color:var(--muted);
+  font-size:11px;
+  text-align:right;
+}
+
+/* FOOTER */
+
+footer{
+  background:#111;
+  color:white;
+  padding:70px 7vw;
+}
+
+.footer-title{
+  font-family:"Playfair Display",serif;
+  font-size:45px;
+}
+
+footer p{
+  color:#999;
+  margin-top:12px;
+}
+
+/* MOBILE */
+
+@media(max-width:800px){
+
+  .navbar{
+    height:58px;
+    top:12px;
+  }
+
+  .nav-links{
+    position:absolute;
+    top:70px;
+    left:0;
+    width:100%;
+    padding:20px;
+    flex-direction:column;
+    gap:18px;
+    background:rgba(255,255,255,.85);
+    backdrop-filter:blur(20px);
+    border-radius:18px;
+    display:none;
+  }
+
+  .nav-links.active{
+    display:flex;
+  }
+
+  .menu-btn{
+    display:block;
+  }
+
+  .hero{
+    min-height:92vh;
+    padding:130px 25px 45px;
+  }
+
+  .hero h1{
+    font-size:58px;
+  }
+
+  section{
+    padding:80px 25px;
+  }
+
+  .intro{
+    grid-template-columns:1fr;
+    gap:40px;
+  }
+
+  .intro-image{
+    min-height:420px;
+  }
+
+  .facility-grid{
+    grid-template-columns:1fr;
+  }
+
+  .facility:first-child{
+    min-height:430px;
+  }
+
+  .facility{
+    min-height:280px;
+  }
+
+  .stats{
+    grid-template-columns:1fr 1fr;
+  }
+
+  .faculty-head{
+    align-items:start;
+    flex-direction:column;
+  }
+
+  .faculty-grid,
+  .admission-grid{
+    grid-template-columns:1fr;
+  }
+
+  .news-item{
+    grid-template-columns:40px 1fr;
+  }
+
+  .news-date{
+    display:none;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<nav class="navbar">
+  <a href="#" class="logo">UM.</a>
+
+  <div class="nav-links" id="navLinks">
+    <a href="#about">About</a>
+    <a href="#facilities">Facilities</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#admission">Admissions</a>
+    <a href="#news">News</a>
+  </div>
+
+  <button class="menu-btn" onclick="toggleMenu()">☰</button>
+</nav>
+
+<!-- HERO -->
+<header class="hero">
+  <div class="hero-content">
+
+    <div class="eyebrow">
+      Est. 1932 · West Java · Indonesia
+    </div>
+
+    <h1>
+      University<br>
+      of Mowtown
+    </h1>
+
+    <p class="hero-sub">
+      An institution built on knowledge, character, and a vision
+      that continues across generations.
+    </p>
+
+    <div class="hero-meta">
+      <div>
+        <strong>47</strong>
+        <span>Hectares Campus</span>
+      </div>
+
+      <div>
+        <strong>52,847</strong>
+        <span>Active Students</span>
+      </div>
+
+      <div>
+        <strong>497</strong>
+        <span>Faculty Members</span>
+      </div>
+    </div>
+
+  </div>
+</header>
+
+<!-- ABOUT -->
+<section id="about">
+
+  <div class="intro">
+
+    <div class="intro-text">
+      <div class="section-label">The University</div>
+
+      <h2 class="section-title">
+        Built to endure.<br>
+        Designed to inspire.
+      </h2>
+
+      <p>
+        University of Mowtown adalah universitas yang berdiri sejak
+        1932 dan berkembang menjadi salah satu institusi pendidikan
+        terbesar dengan lingkungan akademik modern, fasilitas
+        berkelas, dan komunitas pembelajar dari berbagai daerah.
+      </p>
+
+      <div class="founder">
+        <strong>Daffi Kautsar, M.A., Ph.D., LL.D.</strong>
+        <span>Founding Rector & Chancellor · 1932</span>
+      </div>
+    </div>
+
+    <div class="intro-image"></div>
+
+  </div>
+
+</section>
+
+<!-- FACILITIES -->
+<section class="dark-section" id="facilities">
+
+  <div class="section-label">Campus Life</div>
+
+  <h2 class="section-title">
+    Spaces made<br>
+    for possibility.
+  </h2>
+
+  <div class="facility-grid">
+
+    <div class="facility"
+      style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=85')">
+      <div class="facility-info">
+        <small>01 · Main Campus</small>
+        <h3>Mowtown Grand Hall</h3>
+      </div>
+    </div>
+
+    <div class="facility"
+      style="background-image:url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1000&q=85')">
+      <div class="facility-info">
+        <small>02 · Knowledge</small>
+        <h3>Central Library</h3>
+      </div>
+    </div>
+
+    <div class="facility"
+      style="background-image:url('https://images.unsplash.com/photo-1576495199011-eb94736c0f5a?auto=format&fit=crop&w=1000&q=85')">
+      <div class="facility-info">
+        <small>03 · Research</small>
+        <h3>Research Center</h3>
+      </div>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- STATS -->
+<section>
+
+  <div class="section-label">Mowtown by numbers</div>
+
+  <h2 class="section-title">
+    A growing academic community.
+  </h2>
+
+  <div class="stats">
+
+    <div class="stat">
+      <strong>52,847</strong>
+      <span>Active Students</span>
+    </div>
+
+    <div class="stat">
+      <strong>497</strong>
+      <span>Faculty Members</span>
+    </div>
+
+    <div class="stat">
+      <strong>18</strong>
+      <span>Faculties</span>
+    </div>
+
+    <div class="stat">
+      <strong>126</strong>
+      <span>Study Programs</span>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- FACULTY -->
+<section id="faculty">
+
+  <div class="faculty-head">
+    <div>
+      <div class="section-label">Academic Community</div>
+
+      <h2 class="section-title">
+        Our faculty.
+      </h2>
+    </div>
+
+    <button class="outline-btn" onclick="showFaculty()">
+      View all 497 faculty →
+    </button>
+  </div>
+
+  <div class="faculty-grid">
+
+    <div class="faculty-card">
+      <div class="avatar">AR</div>
+      <h3>Prof. Armand Rahardian, Ph.D.</h3>
+      <p>Professor of Economics & Public Policy</p>
+    </div>
+
+    <div class="faculty-card">
+      <div class="avatar">NS</div>
+      <h3>Dr. Nadine Suryana, M.Sc.</h3>
+      <p>Professor of Computer Science</p>
+    </div>
+
+    <div class="faculty-card">
+      <div class="avatar">FA</div>
+      <h3>Prof. Farrel Adinata, M.T.</h3>
+      <p>Professor of Engineering</p>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- ADMISSION -->
+<section class="admission" id="admission">
+
+  <div class="section-label">Admissions</div>
+
+  <h2 class="section-title">
+    Choose your path.
+  </h2>
+
+  <div class="admission-grid">
+
+    <div class="admission-card">
+      <span class="number">01 · REGULAR</span>
+      <h3>UKT Regular</h3>
+      <p>
+        Jalur penerimaan reguler dengan skema UKT
+        berdasarkan kelompok biaya pendidikan.
+      </p>
+      <button onclick="showInfo('UKT Regular')">
+        View details →
+      </button>
+    </div>
+
+    <div class="admission-card">
+      <span class="number">02 · FAST TRACK</span>
+      <h3>UKT Fast Track</h3>
+      <p>
+        Jalur percepatan akademik dengan fasilitas
+        khusus dan asrama mahasiswa.
+      </p>
+      <button onclick="showInfo('Fast Track')">
+        View details →
+      </button>
+    </div>
+
+    <div class="admission-card">
+      <span class="number">03 · FULLY FUNDED</span>
+      <h3>Scholarship</h3>
+      <p>
+        Beasiswa pendidikan 100%, asrama gratis,
+        dan uang saku bulanan Rp11.500.000.
+      </p>
+      <button onclick="showInfo('Fully Funded Scholarship')">
+        View details →
+      </button>
+    </div>
+
+  </div>
+
+</section>
+
+<!-- NEWS -->
+<section id="news">
+
+  <div class="section-label">Mowtown Today</div>
+
+  <h2 class="section-title">
+    Latest news.
+  </h2>
+
+  <div class="news-list" id="newsList">
+
+    <article class="news-item">
+      <div class="news-number">01</div>
+      <div>
+        <h3>Mowtown membuka pusat inovasi dan riset baru</h3>
+        <p>Research · University News</p>
+      </div>
+      <div class="news-date">14 AUG 2026</div>
+    </article>
+
+    <article class="news-item">
+      <div class="news-number">02</div>
+      <div>
+        <h3>497 dosen bergabung dalam program akademik 2026</h3>
+        <p>Academic · Campus</p>
+      </div>
+      <div class="news-date">12 AUG 2026</div>
+    </article>
+
+    <article class="news-item">
+      <div class="news-number">03</div>
+      <div>
+        <h3>Pendaftaran mahasiswa baru Mowtown resmi dibuka</h3>
+        <p>Admissions · PMB</p>
+      </div>
+      <div class="news-date">10 AUG 2026</div>
+    </article>
+
+  </div>
+
+</section>
+
+<!-- FOOTER -->
+<footer>
+
+  <div class="section-label">University of Mowtown</div>
+
+  <div class="footer-title">
+    Knowledge.<br>
+    Character. Future.
+  </div>
+
+  <p>
+    University of Mowtown · Established 1932
+  </p>
+
+</footer>
+
+<script>
+
+function toggleMenu(){
+  document.getElementById("navLinks").classList.toggle("active");
+}
+
+function showInfo(type){
+
+  if(type === "Fully Funded Scholarship"){
+    alert(
+      "FULLY FUNDED SCHOLARSHIP\n\n" +
+      "• Biaya pendidikan 100%\n" +
+      "• Asrama gratis\n" +
+      "• Uang saku Rp11.500.000/bulan\n" +
+      "• Fasilitas akademik\n" +
+      "• Fasilitas kesehatan mahasiswa"
+    );
+  }
+
+  else if(type === "Fast Track"){
+    alert(
+      "UKT FAST TRACK\n\n" +
+      "• Jalur percepatan akademik\n" +
+      "• Asrama mahasiswa\n" +
+      "• Fasilitas akademik\n" +
+      "• Akses fasilitas kampus"
+    );
+  }
+
+  else{
+    alert(
+      "UKT REGULAR\n\n" +
+      "• Biaya pendidikan berdasarkan kelompok UKT\n" +
+      "• Asrama mahasiswa tersedia\n" +
+      "• Akses fasilitas kampus\n" +
+      "• Fasilitas akademik"
+    );
+  }
+
+}
+
+function showFaculty(){
+
+  alert(
+    "FACULTY DIRECTORY\n\n" +
+    "University of Mowtown memiliki 497 dosen.\n\n" +
+    "Directory lengkap akan menampilkan:\n" +
+    "• Nama dosen\n" +
+    "• Gelar akademik\n" +
+    "• Fakultas\n" +
+    "• Program studi\n" +
+    "• Bidang keahlian"
+  );
+
+}
+
+
+/* NEWS LIVE — SIMULASI UPDATE 5 MENIT */
+
+const liveNews = [
+  "University of Mowtown meresmikan fasilitas akademik terbaru.",
+  "Tim mahasiswa Mowtown meraih prestasi nasional.",
+  "Program pertukaran mahasiswa internasional resmi dibuka.",
+  "Mowtown memperluas kerja sama penelitian dengan universitas lain.",
+  "Pusat inovasi mahasiswa membuka program baru.",
+  "Pendaftaran PMB Mowtown memasuki periode berikutnya."
+];
+
+let newsCounter = 4;
+
+setInterval(() => {
+
+  const list = document.getElementById("newsList");
+
+  const item = document.createElement("article");
+
+  item.className = "news-item";
+
+  item.innerHTML = `
+    <div class="news-number">
+      ${String(newsCounter).padStart(2,"0")}
+    </div>
+
+    <div>
+      <h3>${liveNews[Math.floor(Math.random()*liveNews.length)]}</h3>
+      <p>Live Update · Mowtown News</p>
+    </div>
+
+    <div class="news-date">JUST NOW</div>
+  `;
+
+  list.prepend(item);
+
+  newsCounter++;
+
+}, 300000);
+
+</script>
+
+</body>
+</html>
