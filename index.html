@@ -1,0 +1,784 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>University of Mowtown</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;0,600;1,500;1,600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <div class="ambient ambient-one"></div>
+  <div class="ambient ambient-two"></div>
+
+  <!-- NAVBAR -->
+  <header class="navbar">
+
+    <a href="#home" class="brand">
+      <div class="crest">M</div>
+
+      <div class="brand-text">
+        <span>UNIVERSITY</span>
+        <strong>OF MOWTOWN</strong>
+      </div>
+    </a>
+
+    <nav id="navMenu">
+      <a href="#about">About</a>
+      <a href="#campus">Campus</a>
+      <a href="#academics">Academics</a>
+      <a href="#admission">Admissions</a>
+      <a href="#news">News</a>
+    </nav>
+
+    <a href="#admission" class="nav-button">
+      Apply 2026 ↗
+    </a>
+
+    <button class="menu-button" onclick="toggleMenu()">☰</button>
+
+  </header>
+
+
+  <main id="home">
+
+    <!-- HERO -->
+    <section class="hero">
+
+      <div class="hero-content">
+
+        <div class="eyebrow">
+          ESTABLISHED 1932 · INDONESIA
+        </div>
+
+        <h1>
+          A tradition of
+          <i>becoming.</i>
+        </h1>
+
+        <p class="hero-description">
+          University of Mowtown is a modern institution shaped by
+          a long academic tradition — educating curious minds,
+          cultivating character, and creating work that matters.
+        </p>
+
+        <div class="hero-actions">
+
+          <a href="#about" class="primary-button">
+            Discover Mowtown →
+          </a>
+
+          <a href="#admission" class="text-button">
+            Start your application ↗
+          </a>
+
+        </div>
+
+
+        <div class="hero-statistics">
+
+          <div>
+            <strong>1932</strong>
+            <span>Founded</span>
+          </div>
+
+          <div>
+            <strong>497</strong>
+            <span>Faculty members</span>
+          </div>
+
+          <div>
+            <strong>14</strong>
+            <span>Faculties</span>
+          </div>
+
+          <div>
+            <strong>94</strong>
+            <span>Years of legacy</span>
+          </div>
+
+        </div>
+
+      </div>
+
+
+      <div class="hero-visual">
+
+        <div class="hero-image"></div>
+
+        <div class="hero-card glass">
+
+          <span>THE HEART OF MOWTOWN</span>
+
+          <strong>Grand University Hall</strong>
+
+          <small>
+            Academic District · Mowtown
+          </small>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- ABOUT -->
+    <section id="about" class="section about">
+
+      <div class="section-label">
+        01 / OUR STORY
+      </div>
+
+      <div class="about-grid">
+
+        <h2>
+          Built on a belief that education should
+          <i>move people forward.</i>
+        </h2>
+
+        <div class="about-text">
+
+          <p>
+            University of Mowtown was founded in 1932 by
+            <strong>Daffi Kautsar</strong>,
+            our <strong>Founding Chancellor & First Rector</strong>.
+          </p>
+
+          <p>
+            What began as a vision for a rigorous and humane
+            institution has grown into a comprehensive university
+            with a distinctly Indonesian character and a global outlook.
+          </p>
+
+          <p>
+            Today, Mowtown brings together research,
+            professional education, arts, technology,
+            health sciences, and the humanities.
+          </p>
+
+          <a href="#academics" class="text-button">
+            Explore our academics →
+          </a>
+
+        </div>
+
+      </div>
+
+    </section>
+
+
+    <!-- CAMPUS -->
+    <section id="campus" class="section">
+
+      <div class="section-heading">
+
+        <div>
+          <div class="section-label">
+            02 / CAMPUS
+          </div>
+
+          <h2>
+            Space to think.<br>
+            <i>Room to grow.</i>
+          </h2>
+        </div>
+
+        <p>
+          Designed for concentration, collaboration,
+          and a life beyond the classroom.
+        </p>
+
+      </div>
+
+
+      <div class="campus-grid">
+
+        <article class="campus-card campus-large">
+          <div class="campus-image image-one"></div>
+
+          <div class="campus-caption">
+            <strong>Grand Mowtown Hall</strong>
+            <span>Central administration · 1932 / 2026</span>
+          </div>
+        </article>
+
+
+        <article class="campus-card">
+          <div class="campus-image image-two"></div>
+
+          <div class="campus-caption">
+            <strong>Mowtown Central Library</strong>
+            <span>Research & knowledge centre</span>
+          </div>
+        </article>
+
+
+        <article class="campus-card">
+          <div class="campus-image image-three"></div>
+
+          <div class="campus-caption">
+            <strong>Science & Innovation Centre</strong>
+            <span>Laboratories & research</span>
+          </div>
+        </article>
+
+
+        <article class="campus-card campus-wide">
+          <div class="campus-image image-four"></div>
+
+          <div class="campus-caption">
+            <strong>Student Residence</strong>
+            <span>A home for the Mowtown community</span>
+          </div>
+        </article>
+
+      </div>
+
+    </section>
+
+
+    <!-- ACADEMICS -->
+    <section id="academics" class="section academics">
+
+      <div class="section-label">
+        03 / ACADEMICS
+      </div>
+
+      <div class="section-heading">
+
+        <h2>
+          One university.<br>
+          <i>Many ways to excel.</i>
+        </h2>
+
+        <p>
+          Explore 14 faculties and a broad range
+          of disciplines inspired by leading Indonesian universities.
+        </p>
+
+      </div>
+
+
+      <div id="facultyGrid" class="faculty-grid"></div>
+
+    </section>
+
+
+    <!-- DOSEN -->
+    <section class="section faculty-directory">
+
+      <div class="directory-heading">
+
+        <div>
+
+          <div class="section-label">
+            FACULTY DIRECTORY
+          </div>
+
+          <h2>
+            Meet the people<br>
+            behind the classroom.
+          </h2>
+
+        </div>
+
+        <button class="outline-button" onclick="openLecturers()">
+          View 497 lecturers →
+        </button>
+
+      </div>
+
+
+      <div id="professorGrid" class="professor-grid"></div>
+
+    </section>
+
+
+    <!-- RANKING -->
+    <section class="section ranking">
+
+      <div class="section-heading">
+
+        <div>
+
+          <div class="section-label">
+            MOWTOWN ACADEMIC INDEX
+          </div>
+
+          <h2>
+            Students who<br>
+            <i>raise the bar.</i>
+          </h2>
+
+        </div>
+
+        <div class="update glass">
+          UPDATED EVERY 2 WEEKS
+          <strong>14 AUG 2026</strong>
+        </div>
+
+      </div>
+
+
+      <div id="rankingList" class="ranking-list"></div>
+
+    </section>
+
+
+    <!-- UKT -->
+    <section class="section finance">
+
+      <div class="section-label">
+        04 / FEES & FUNDING
+      </div>
+
+      <div class="section-heading">
+
+        <h2>
+          An investment in<br>
+          <i>your future.</i>
+        </h2>
+
+        <p>
+          Transparent pathways for students
+          with different academic and financial circumstances.
+        </p>
+
+      </div>
+
+
+      <div class="fund-grid">
+
+        <button class="fund-card glass" onclick="openFee('regular')">
+
+          <span>REGULAR</span>
+
+          <strong>UKT Reguler</strong>
+
+          <b>Rp 8–18 jt</b>
+
+          <small>
+            per semester · program dependent
+          </small>
+
+          <em>
+            Details →
+          </em>
+
+        </button>
+
+
+        <button class="fund-card glass" onclick="openFee('fast')">
+
+          <span>ACCELERATED</span>
+
+          <strong>UKT Fast Track</strong>
+
+          <b>Rp 18–28 jt</b>
+
+          <small>
+            per semester · intensive route
+          </small>
+
+          <em>
+            Details →
+          </em>
+
+        </button>
+
+
+        <button class="fund-card blue-card" onclick="openFee('scholarship')">
+
+          <span>FULLY FUNDED</span>
+
+          <strong>Scholarship</strong>
+
+          <b>100%</b>
+
+          <small>
+            tuition + allowance + residence
+          </small>
+
+          <em>
+            Explore award →
+          </em>
+
+        </button>
+
+
+        <button class="fund-card glass" onclick="openFee('mandiri')">
+
+          <span>INDEPENDENT</span>
+
+          <strong>Jalur Mandiri</strong>
+
+          <b>Rp 15–30 jt</b>
+
+          <small>
+            per semester · residence available
+          </small>
+
+          <em>
+            Details →
+          </em>
+
+        </button>
+
+      </div>
+
+    </section>
+
+
+    <!-- PMB -->
+    <section id="admission" class="section admissions">
+
+      <div class="admission-intro">
+
+        <div class="section-label">
+          05 / ADMISSIONS
+        </div>
+
+        <h2>
+          Your next chapter
+          starts <i>here.</i>
+        </h2>
+
+        <p>
+          Complete the PMB form and receive
+          your KETAT MOWTOWN examination number instantly.
+        </p>
+
+      </div>
+
+
+      <form id="registrationForm" class="application glass">
+
+        <div class="form-title">
+          <span>PMB 2026</span>
+          <strong>Registration form</strong>
+        </div>
+
+
+        <div class="form-grid">
+
+          <label>
+            Full name
+            <input
+              name="name"
+              required
+              placeholder="Your full name"
+            >
+          </label>
+
+
+          <label>
+            Email
+            <input
+              name="email"
+              type="email"
+              required
+              placeholder="you@email.com"
+            >
+          </label>
+
+
+          <label>
+            WhatsApp
+            <input
+              name="phone"
+              required
+              placeholder="08xxxxxxxxxx"
+            >
+          </label>
+
+
+          <label>
+            Date of birth
+            <input
+              name="birth"
+              type="date"
+              required
+            >
+          </label>
+
+
+          <label>
+            Faculty
+
+            <select id="facultySelect" required>
+              <option value="">
+                Choose faculty
+              </option>
+            </select>
+
+          </label>
+
+
+          <label>
+            Study programme
+
+            <select id="majorSelect" required>
+              <option value="">
+                Choose programme
+              </option>
+            </select>
+
+          </label>
+
+
+          <label>
+            Admission route
+
+            <select>
+              <option>UKT Reguler</option>
+              <option>UKT Fast Track</option>
+              <option>Jalur Mandiri</option>
+              <option>Fully Funded Scholarship</option>
+            </select>
+
+          </label>
+
+
+          <label>
+            Intake
+
+            <select>
+              <option>2026</option>
+              <option>2027</option>
+            </select>
+
+          </label>
+
+        </div>
+
+
+        <label class="agreement">
+
+          <input type="checkbox" required>
+
+          I confirm that the information provided is accurate.
+
+        </label>
+
+
+        <button class="primary-button" type="submit">
+          Submit application →
+        </button>
+
+      </form>
+
+
+      <div id="registrationResult" class="registration-result glass hidden">
+
+        <span class="section-label">
+          APPLICATION RECEIVED
+        </span>
+
+        <strong>
+          Your KETAT MOWTOWN number
+        </strong>
+
+        <b id="examNumber"></b>
+
+        <small>
+          Keep this number safe to access your examination card.
+        </small>
+
+      </div>
+
+    </section>
+
+
+    <!-- KETAT -->
+    <section class="section examination">
+
+      <div class="section-label">
+        KETAT MOWTOWN
+      </div>
+
+      <div class="section-heading">
+
+        <h2>
+          Examination<br>
+          <i>pass.</i>
+        </h2>
+
+        <p>
+          Generate a digital examination card
+          using your registration number.
+        </p>
+
+      </div>
+
+
+      <div class="exam-generator glass">
+
+        <input
+          id="cardName"
+          placeholder="Participant name"
+        >
+
+        <input
+          id="cardNumber"
+          placeholder="MOW-26-123456"
+        >
+
+        <button
+          class="primary-button"
+          onclick="generateCard()"
+        >
+          Generate card →
+        </button>
+
+      </div>
+
+
+      <article id="examCard" class="exam-card hidden">
+
+        <div class="exam-header">
+
+          <span>
+            UNIVERSITY OF MOWTOWN
+          </span>
+
+          <strong>
+            KETAT MOWTOWN · 2026
+          </strong>
+
+        </div>
+
+
+        <div class="exam-content">
+
+          <div>
+
+            <small>
+              PARTICIPANT
+            </small>
+
+            <h3 id="cardParticipant">
+              —
+            </h3>
+
+            <small>
+              REGISTRATION NUMBER
+            </small>
+
+            <p id="cardRegistration">
+              —
+            </p>
+
+          </div>
+
+
+          <div class="exam-details">
+
+            <small>DATE</small>
+            <strong id="cardDate">—</strong>
+
+            <small>TIME</small>
+            <strong id="cardTime">—</strong>
+
+            <small>ROOM</small>
+            <strong id="cardRoom">—</strong>
+
+          </div>
+
+        </div>
+
+      </article>
+
+    </section>
+
+
+    <!-- NEWS -->
+    <section id="news" class="section news">
+
+      <div class="section-heading">
+
+        <div>
+
+          <div class="section-label">
+            06 / MOWTOWN NEWS
+          </div>
+
+          <h2>
+            Ideas, people,<br>
+            <i>what's happening.</i>
+          </h2>
+
+        </div>
+
+        <button
+          class="outline-button"
+          onclick="openNewsArchive()"
+        >
+          View all news →
+        </button>
+
+      </div>
+
+
+      <div id="newsGrid" class="news-grid"></div>
+
+    </section>
+
+  </main>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <div class="brand">
+
+      <div class="crest">
+        M
+      </div>
+
+      <div class="brand-text">
+        <span>UNIVERSITY</span>
+        <strong>OF MOWTOWN</strong>
+      </div>
+
+    </div>
+
+    <div>
+      <span>EST. 1932</span>
+      <p>
+        © 1932–2026 University of Mowtown
+      </p>
+    </div>
+
+  </footer>
+
+
+  <!-- MODAL -->
+  <div id="modal" class="modal hidden">
+
+    <div class="modal-box glass">
+
+      <button
+        class="close-button"
+        onclick="closeModal()"
+      >
+        ×
+      </button>
+
+      <div id="modalContent"></div>
+
+    </div>
+
+  </div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
