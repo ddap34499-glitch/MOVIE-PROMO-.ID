@@ -1,0 +1,1419 @@
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: #f4efe5;
+  color: #171714;
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+button,
+input,
+select {
+  font: inherit;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+.navbar {
+  position: sticky;
+  top: 0;
+  z-index: 5000;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+
+  padding: 16px 5%;
+
+  background: rgba(20, 20, 18, .94);
+  color: #fff;
+
+  backdrop-filter: blur(18px);
+  border-bottom: 1px solid rgba(255,255,255,.08);
+}
+
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.brand-logo {
+  width: 43px;
+  height: 43px;
+
+  display: grid;
+  place-items: center;
+
+  background: #e8ddc6;
+  color: #29251e;
+
+  border-radius: 12px;
+
+  font-weight: 900;
+  letter-spacing: -1px;
+}
+
+.brand strong {
+  display: block;
+  font-size: 15px;
+}
+
+.brand small {
+  display: block;
+  opacity: .55;
+  font-size: 9px;
+  letter-spacing: 1.5px;
+}
+
+.navbar nav {
+  display: flex;
+  gap: 24px;
+}
+
+.navbar nav a {
+  font-size: 13px;
+  opacity: .72;
+  transition: .2s;
+}
+
+.navbar nav a:hover {
+  opacity: 1;
+  color: #e8ddc6;
+}
+
+/* =========================
+   HERO
+========================= */
+
+.hero {
+  min-height: 760px;
+
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  padding: 100px 7% 60px;
+
+  color: white;
+
+  background:
+    radial-gradient(
+      circle at 75% 30%,
+      #454238,
+      transparent 35%
+    ),
+    linear-gradient(
+      135deg,
+      #11110f,
+      #29271f 55%,
+      #11110f
+    );
+}
+
+.hero-content {
+  max-width: 850px;
+}
+
+.eyebrow,
+.section-heading > span {
+  color: #b7aa8d;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 2px;
+}
+
+.hero h1 {
+  margin: 18px 0;
+
+  font-size: clamp(58px, 9vw, 120px);
+  line-height: .9;
+  letter-spacing: -6px;
+}
+
+.hero h1 span {
+  color: #d9ccb0;
+}
+
+.hero p {
+  max-width: 650px;
+  color: rgba(255,255,255,.65);
+  font-size: 17px;
+}
+
+.hero-buttons {
+  display: flex;
+  gap: 12px;
+  margin-top: 30px;
+}
+
+.btn {
+  border: 0;
+  cursor: pointer;
+
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  padding: 13px 20px;
+
+  border-radius: 12px;
+
+  font-size: 13px;
+  font-weight: 800;
+
+  transition: .2s;
+}
+
+.btn:hover {
+  transform: translateY(-2px);
+}
+
+.btn.primary {
+  background: #ded1b4;
+  color: #252219;
+}
+
+.btn.secondary {
+  background: rgba(255,255,255,.08);
+  color: inherit;
+  border: 1px solid rgba(255,255,255,.12);
+}
+
+.hero-stats {
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 15px;
+
+  max-width: 1000px;
+  margin-top: 90px;
+}
+
+.hero-stats div {
+  padding: 18px;
+
+  border-top: 1px solid rgba(255,255,255,.18);
+}
+
+.hero-stats strong {
+  display: block;
+  font-size: 25px;
+}
+
+.hero-stats span {
+  font-size: 11px;
+  color: rgba(255,255,255,.5);
+}
+
+/* =========================
+   SECTIONS
+========================= */
+
+.section {
+  padding: 110px 7%;
+}
+
+.dark-section {
+  background: #171714;
+  color: white;
+}
+
+.section-heading {
+  margin-bottom: 45px;
+  max-width: 850px;
+}
+
+.section-heading h2 {
+  margin-top: 10px;
+
+  font-size: clamp(40px, 6vw, 75px);
+  line-height: .95;
+  letter-spacing: -3px;
+}
+
+.section-heading p {
+  margin-top: 18px;
+  max-width: 650px;
+  opacity: .65;
+}
+
+/* =========================
+   ABOUT
+========================= */
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr 1fr;
+  gap: 16px;
+}
+
+.about-card {
+  min-height: 250px;
+  padding: 28px;
+
+  background: #e9e0ce;
+
+  border-radius: 22px;
+}
+
+.about-card.large {
+  background: #26251f;
+  color: white;
+}
+
+.card-number {
+  font-size: 11px;
+  letter-spacing: 2px;
+  opacity: .5;
+}
+
+.about-card h3 {
+  margin-top: 60px;
+  font-size: 26px;
+}
+
+.about-card p {
+  margin-top: 10px;
+  opacity: .65;
+}
+
+/* =========================
+   FACULTIES
+========================= */
+
+.faculty-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 12px;
+}
+
+.faculty-card {
+  padding: 25px;
+
+  min-height: 170px;
+
+  border: 1px solid rgba(255,255,255,.08);
+  background: #201f1b;
+
+  border-radius: 18px;
+
+  transition: .25s;
+}
+
+.faculty-card:hover {
+  background: #2a2923;
+  transform: translateY(-4px);
+}
+
+.faculty-card span {
+  font-size: 10px;
+  color: #a99d83;
+}
+
+.faculty-card h3 {
+  margin-top: 35px;
+  font-size: 21px;
+}
+
+.faculty-card p {
+  opacity: .5;
+  font-size: 12px;
+}
+
+/* =========================
+   STUDENTS
+========================= */
+
+.student-table-wrapper {
+  overflow-x: auto;
+
+  margin-bottom: 25px;
+
+  border-radius: 18px;
+  border: 1px solid #ddd4c1;
+}
+
+table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+th,
+td {
+  padding: 17px;
+  text-align: left;
+  border-bottom: 1px solid #ddd4c1;
+}
+
+th {
+  background: #e8dfcd;
+  font-size: 11px;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+td {
+  font-size: 14px;
+}
+
+/* =========================
+   TRANSPORT
+========================= */
+
+.bus-panel {
+  display: grid;
+  gap: 35px;
+}
+
+.bus-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+}
+
+.bus-controls label {
+  display: flex;
+  flex-direction: column;
+  gap: 7px;
+
+  font-size: 11px;
+  color: rgba(255,255,255,.6);
+}
+
+.bus-controls select {
+  min-width: 190px;
+
+  padding: 12px 14px;
+
+  color: white;
+  background: #24231f;
+
+  border: 1px solid rgba(255,255,255,.12);
+  border-radius: 10px;
+}
+
+.women-toggle {
+  flex-direction: row !important;
+  align-items: center;
+  margin-top: 28px;
+}
+
+/* =========================
+   SEATS
+========================= */
+
+.seat-section {
+  padding: 30px;
+
+  background: #211f1b;
+
+  border-radius: 22px;
+}
+
+.seat-section h3 {
+  font-size: 25px;
+}
+
+.seat-section p {
+  opacity: .5;
+  font-size: 12px;
+  margin: 7px 0 25px;
+}
+
+.seat-map {
+  display: grid;
+  grid-template-columns: repeat(6, 48px);
+  gap: 9px;
+
+  width: max-content;
+}
+
+.seat {
+  width: 48px;
+  height: 48px;
+
+  display: grid;
+  place-items: center;
+
+  border-radius: 10px;
+
+  background: #405c45;
+  color: white;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  cursor: pointer;
+
+  transition: .15s;
+}
+
+.seat:hover {
+  transform: scale(1.05);
+}
+
+.seat.booked {
+  background: #44433f;
+  opacity: .45;
+  cursor: not-allowed;
+}
+
+.seat.accessible {
+  background: #596d77;
+}
+
+.seat.women-seat {
+  background: #784c63;
+}
+
+.seat.selected {
+  background: #d9ccb0;
+  color: #222;
+}
+
+.selected-seat {
+  margin: 25px 0;
+  color: rgba(255,255,255,.6);
+}
+
+/* =========================
+   TICKET
+========================= */
+
+.ticket-section {
+  display: grid;
+  gap: 25px;
+}
+
+.ticket {
+  max-width: 650px;
+  padding: 30px;
+
+  background: #f4efe5;
+  color: #171714;
+
+  border-radius: 25px;
+
+  box-shadow:
+    0 25px 60px rgba(0,0,0,.3);
+}
+
+.ticket-top {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 25px;
+}
+
+.ticket-top span {
+  font-size: 10px;
+  letter-spacing: 1.5px;
+}
+
+.ticket-top strong {
+  font-size: 12px;
+}
+
+.barcode {
+  height: 90px;
+
+  background:
+    repeating-linear-gradient(
+      90deg,
+      #111 0 2px,
+      transparent 2px 5px,
+      #111 5px 6px,
+      transparent 6px 9px
+    );
+
+  border-radius: 5px;
+}
+
+.barcode-text {
+  text-align: center;
+  font-family: monospace;
+  margin: 8px 0 25px;
+}
+
+.ticket-info {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 18px;
+}
+
+.ticket-info small,
+.ticket-info strong {
+  display: block;
+}
+
+.ticket-info small {
+  color: #888;
+  font-size: 10px;
+}
+
+.ticket-info strong {
+  margin-top: 4px;
+}
+
+/* =========================
+   3D CAMPUS MAP
+========================= */
+
+.live-map-section {
+  padding: 25px;
+
+  background: #0f0f0d;
+
+  border: 1px solid rgba(255,255,255,.08);
+  border-radius: 25px;
+}
+
+.map-title span {
+  color: #72d28b;
+  font-size: 10px;
+  font-weight: 900;
+  letter-spacing: 2px;
+}
+
+.map-title h3 {
+  margin-top: 8px;
+  font-size: 30px;
+}
+
+.map-title p {
+  opacity: .5;
+}
+
+/* MAP */
+
+.campus-map {
+  position: relative;
+
+  height: 650px;
+
+  margin-top: 25px;
+
+  overflow: hidden;
+
+  border-radius: 25px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #60795d,
+      #4d674e
+    );
+
+  box-shadow:
+    inset 0 0 100px rgba(0,0,0,.25);
+}
+
+/* jalan */
+
+.map-road {
+  position: absolute;
+
+  background: #343833;
+
+  box-shadow:
+    inset 0 0 0 2px rgba(255,255,255,.06);
+}
+
+.road-a {
+  width: 100%;
+  height: 80px;
+  top: 43%;
+}
+
+.road-b {
+  width: 80px;
+  height: 100%;
+  left: 43%;
+}
+
+.road-c {
+  width: 80%;
+  height: 55px;
+
+  left: 10%;
+  top: 22%;
+
+  transform: rotate(-10deg);
+}
+
+/* gedung */
+
+.map-building {
+  position: absolute;
+
+  width: 130px;
+  min-height: 95px;
+
+  padding: 15px;
+
+  text-align: center;
+
+  background:
+    linear-gradient(
+      145deg,
+      #eee5d1,
+      #c9bea5
+    );
+
+  color: #29251e;
+
+  border-radius: 8px;
+
+  box-shadow:
+    10px 15px 0 rgba(0,0,0,.16),
+    0 20px 30px rgba(0,0,0,.2);
+
+  transform:
+    perspective(500px)
+    rotateX(45deg)
+    rotateZ(-2deg);
+
+  transform-style: preserve-3d;
+}
+
+.map-building div {
+  font-size: 30px;
+}
+
+.map-building strong {
+  display: block;
+  margin-top: 5px;
+  font-size: 11px;
+}
+
+.building-medicine {
+  top: 55px;
+  left: 60px;
+}
+
+.building-engineering {
+  top: 65px;
+  right: 80px;
+}
+
+.building-law {
+  bottom: 70px;
+  left: 70px;
+}
+
+.building-computer {
+  bottom: 70px;
+  right: 70px;
+}
+
+.building-business {
+  top: 250px;
+  left: 250px;
+}
+
+.building-art {
+  top: 250px;
+  right: 250px;
+}
+
+/* trees */
+
+.map-tree {
+  position: absolute;
+
+  font-size: 36px;
+
+  filter:
+    drop-shadow(
+      5px 8px 4px rgba(0,0,0,.25)
+    );
+}
+
+.tree-1 {
+  top: 30px;
+  left: 35%;
+}
+
+.tree-2 {
+  top: 140px;
+  left: 20%;
+}
+
+.tree-3 {
+  top: 500px;
+  left: 30%;
+}
+
+.tree-4 {
+  top: 120px;
+  right: 32%;
+}
+
+.tree-5 {
+  top: 480px;
+  right: 32%;
+}
+
+.tree-6 {
+  top: 350px;
+  right: 8%;
+}
+
+/* halte */
+
+.map-stop {
+  position: absolute;
+
+  padding: 8px 12px;
+
+  background: rgba(255,255,255,.92);
+  color: #222;
+
+  border-radius: 20px;
+
+  font-size: 10px;
+  font-weight: 800;
+
+  box-shadow:
+    0 7px 15px rgba(0,0,0,.2);
+}
+
+.map-stop span {
+  color: #4ca866;
+}
+
+.stop-athena {
+  left: 25px;
+  top: 48%;
+}
+
+.stop-apollo {
+  left: 45%;
+  top: 30px;
+}
+
+.stop-zeus {
+  right: 25px;
+  top: 48%;
+}
+
+.stop-hermes {
+  left: 45%;
+  bottom: 25px;
+}
+
+/* =========================
+   3D BUS
+========================= */
+
+.bus-3d {
+  position: absolute;
+
+  left: 8%;
+  top: 45%;
+
+  width: 105px;
+  height: 75px;
+
+  z-index: 1000;
+
+  transition:
+    left 5s cubic-bezier(.45,.05,.55,.95),
+    top 5s cubic-bezier(.45,.05,.55,.95),
+    transform .8s ease;
+
+  transform-style: preserve-3d;
+}
+
+.bus-body {
+  position: relative;
+
+  width: 100px;
+  height: 55px;
+
+  border-radius: 15px 20px 10px 10px;
+
+  background:
+    linear-gradient(
+      145deg,
+      #f3ead8,
+      #c7b997
+    );
+
+  box-shadow:
+    8px 12px 0 rgba(0,0,0,.17),
+    0 18px 30px rgba(0,0,0,.3);
+
+  transform:
+    perspective(500px)
+    rotateX(8deg)
+    rotateY(-8deg);
+}
+
+/* bus front */
+
+.bus-front {
+  position: absolute;
+
+  right: -6px;
+  top: 10px;
+
+  width: 10px;
+  height: 34px;
+
+  background: #a99b7c;
+
+  border-radius: 0 8px 8px 0;
+}
+
+/* kaca */
+
+.bus-window {
+  position: absolute;
+
+  top: 10px;
+
+  width: 20px;
+  height: 18px;
+
+  background:
+    linear-gradient(
+      135deg,
+      #1b2b35,
+      #8198a3
+    );
+
+  border-radius: 5px;
+
+  box-shadow:
+    inset 2px 2px 3px
+    rgba(255,255,255,.3);
+}
+
+.window-one {
+  left: 10px;
+}
+
+.window-two {
+  left: 34px;
+}
+
+.window-three {
+  left: 58px;
+}
+
+/* pintu */
+
+.bus-door {
+  position: absolute;
+
+  right: 12px;
+  top: 10px;
+
+  width: 14px;
+  height: 34px;
+
+  background:
+    linear-gradient(
+      90deg,
+      #86979e,
+      #35444c
+    );
+
+  border-radius: 3px;
+}
+
+/* wheels */
+
+.bus-wheel {
+  position: absolute;
+
+  bottom: -11px;
+
+  width: 25px;
+  height: 25px;
+
+  background: #111;
+
+  border: 5px solid #252525;
+
+  border-radius: 50%;
+
+  box-shadow:
+    inset 0 0 0 3px #777;
+}
+
+.bus-wheel span {
+  display: block;
+
+  width: 7px;
+  height: 7px;
+
+  margin: 4px auto;
+
+  background: #aaa;
+
+  border-radius: 50%;
+}
+
+.wheel-one {
+  left: 12px;
+}
+
+.wheel-two {
+  right: 12px;
+}
+
+/* UM logo */
+
+.bus-logo {
+  position: absolute;
+
+  left: 13px;
+  bottom: 3px;
+
+  font-size: 7px;
+  font-weight: 900;
+
+  letter-spacing: 1px;
+
+  color: #4c402b;
+}
+
+/* shadow */
+
+.bus-shadow {
+  position: absolute;
+
+  left: 4px;
+  bottom: -20px;
+
+  width: 100px;
+  height: 15px;
+
+  background: rgba(0,0,0,.28);
+
+  border-radius: 50%;
+
+  filter: blur(5px);
+}
+
+/* moving effect */
+
+.bus-3d.moving {
+  animation:
+    busBounce .45s infinite alternate;
+}
+
+@keyframes busBounce {
+
+  from {
+    margin-top: 0;
+  }
+
+  to {
+    margin-top: -3px;
+  }
+
+}
+
+/* map status */
+
+.map-status {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+
+  gap: 12px;
+
+  margin-top: 15px;
+}
+
+.map-status div {
+  padding: 18px;
+
+  background: #1b1a17;
+
+  border-radius: 14px;
+}
+
+.map-status small,
+.map-status strong {
+  display: block;
+}
+
+.map-status small {
+  font-size: 9px;
+  color: rgba(255,255,255,.4);
+}
+
+.map-status strong {
+  margin-top: 5px;
+}
+
+/* =========================
+   MERCH
+========================= */
+
+.merch-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 18px;
+}
+
+.merch-card {
+  padding: 20px;
+
+  background: #e8dfcd;
+
+  border-radius: 20px;
+}
+
+.merch-image {
+  height: 220px;
+
+  display: grid;
+  place-items: center;
+
+  background: #d4c8b0;
+
+  border-radius: 15px;
+
+  font-size: 80px;
+}
+
+.merch-card h3 {
+  margin-top: 18px;
+  font-size: 20px;
+}
+
+.merch-card p {
+  margin: 7px 0 18px;
+  opacity: .6;
+  font-size: 13px;
+}
+
+.merch-card .secondary {
+  color: #222;
+  background: rgba(0,0,0,.06);
+  border-color: rgba(0,0,0,.1);
+}
+
+/* =========================
+   KKN
+========================= */
+
+.kkn-card {
+  display: grid;
+  grid-template-columns: 1.3fr 1fr;
+
+  gap: 40px;
+
+  padding: 35px;
+
+  background: #211f1b;
+
+  border: 1px solid rgba(255,255,255,.08);
+
+  border-radius: 25px;
+}
+
+.kkn-card h3 {
+  margin-top: 15px;
+  font-size: 28px;
+}
+
+.kkn-card p {
+  margin-top: 12px;
+  opacity: .55;
+}
+
+.kkn-steps {
+  display: grid;
+  gap: 10px;
+}
+
+.kkn-steps div {
+  display: flex;
+  gap: 15px;
+  align-items: center;
+
+  padding: 15px;
+
+  background: rgba(255,255,255,.04);
+
+  border-radius: 12px;
+}
+
+.kkn-steps strong {
+  color: #d8ccb1;
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  padding: 50px 7%;
+
+  background: #10100e;
+  color: white;
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+footer p {
+  font-size: 11px;
+  opacity: .4;
+}
+
+/* =========================
+   STUDENT DRAWER
+========================= */
+
+.modal-backdrop {
+  position: fixed;
+  inset: 0;
+
+  z-index: 7000;
+
+  background: rgba(0,0,0,.6);
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: .25s;
+}
+
+.modal-backdrop.active {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.student-drawer {
+  position: fixed;
+
+  z-index: 8000;
+
+  right: -500px;
+  top: 0;
+
+  width: min(500px, 95vw);
+  height: 100vh;
+
+  padding: 35px;
+
+  background: #f4efe5;
+
+  color: #171714;
+
+  overflow-y: auto;
+
+  transition: .3s;
+}
+
+.student-drawer.active {
+  right: 0;
+}
+
+.close-button {
+  position: absolute;
+
+  top: 20px;
+  right: 20px;
+
+  width: 35px;
+  height: 35px;
+
+  border: 0;
+  border-radius: 50%;
+
+  cursor: pointer;
+
+  font-size: 22px;
+}
+
+.student-drawer > span {
+  font-size: 10px;
+  letter-spacing: 2px;
+  color: #85785e;
+}
+
+.student-drawer h2 {
+  margin: 8px 0 20px;
+
+  font-size: 35px;
+}
+
+#studentSearch {
+  width: 100%;
+
+  padding: 14px;
+
+  border: 1px solid #d4cbb9;
+  border-radius: 12px;
+
+  background: white;
+
+  outline: none;
+}
+
+#searchResultCount {
+  margin: 12px 0;
+
+  font-size: 11px;
+  opacity: .5;
+}
+
+.student-results {
+  display: grid;
+  gap: 10px;
+}
+
+.student-result {
+  padding: 15px;
+
+  background: #e9e0cf;
+
+  border-radius: 12px;
+}
+
+.student-result strong {
+  display: block;
+}
+
+.student-result span {
+  display: block;
+
+  font-size: 11px;
+  opacity: .6;
+}
+
+.pagination {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+
+  margin-top: 20px;
+}
+
+.pagination button {
+  padding: 7px 10px;
+
+  border: 0;
+  border-radius: 8px;
+
+  background: #ddd2bc;
+
+  cursor: pointer;
+}
+
+.pagination button.active {
+  background: #29261f;
+  color: white;
+}
+
+/* =========================
+   RESPONSIVE
+========================= */
+
+@media (max-width: 900px) {
+
+  .navbar nav {
+    display: none;
+  }
+
+  .hero-stats {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .about-grid,
+  .kkn-card {
+    grid-template-columns: 1fr;
+  }
+
+  .faculty-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  .merch-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+@media (max-width: 600px) {
+
+  .section {
+    padding: 75px 5%;
+  }
+
+  .hero {
+    padding: 90px 5% 50px;
+  }
+
+  .hero h1 {
+    font-size: 60px;
+  }
+
+  .hero-buttons {
+    flex-direction: column;
+  }
+
+  .faculty-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .hero-stats {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .seat-map {
+    grid-template-columns: repeat(6, 38px);
+  }
+
+  .seat {
+    width: 38px;
+    height: 38px;
+    font-size: 11px;
+  }
+
+  .campus-map {
+    height: 500px;
+  }
+
+  .map-building {
+    transform: scale(.75);
+  }
+
+  .building-business,
+  .building-art {
+    display: none;
+  }
+
+  .map-status {
+    grid-template-columns: 1fr;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 25px;
+    align-items: flex-start;
+  }
+
+}
