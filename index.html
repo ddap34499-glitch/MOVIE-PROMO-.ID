@@ -1,0 +1,407 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>University of Mowtown</title>
+
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+  <!-- NAVBAR -->
+  <nav class="navbar">
+    <div class="logo">UM.</div>
+
+    <div class="nav-links">
+      <a href="#about">About</a>
+      <a href="#faculties">Faculties</a>
+      <a href="#admission">Admissions</a>
+      <a href="#exam">Exam Card</a>
+      <a href="#news">News</a>
+    </div>
+  </nav>
+
+
+  <!-- HERO -->
+  <header class="hero">
+
+    <div class="hero-overlay"></div>
+
+    <div class="hero-content">
+
+      <p class="eyebrow">
+        EST. 1932 · INDONESIA
+      </p>
+
+      <h1>
+        University<br>
+        of Mowtown
+      </h1>
+
+      <p class="hero-desc">
+        Knowledge, character and a vision for the future.
+      </p>
+
+      <div class="statistics">
+
+        <div>
+          <strong>47</strong>
+          <span>Hectares</span>
+        </div>
+
+        <div>
+          <strong>52,847</strong>
+          <span>Students</span>
+        </div>
+
+        <div>
+          <strong>497</strong>
+          <span>Faculty</span>
+        </div>
+
+        <div>
+          <strong id="totalApplicants">8,421</strong>
+          <span>Applicants</span>
+        </div>
+
+      </div>
+
+    </div>
+
+  </header>
+
+
+  <!-- ABOUT -->
+  <section id="about" class="section">
+
+    <p class="section-label">
+      THE UNIVERSITY
+    </p>
+
+    <h2>
+      Built to endure.<br>
+      Designed to inspire.
+    </h2>
+
+    <p class="description">
+      University of Mowtown adalah universitas modern dengan
+      lingkungan akademik yang luas, fasilitas lengkap, serta
+      berbagai bidang studi untuk mengembangkan potensi mahasiswa.
+    </p>
+
+  </section>
+
+
+  <!-- FACILITIES -->
+  <section class="dark-section">
+
+    <p class="section-label">
+      CAMPUS LIFE
+    </p>
+
+    <h2>
+      Spaces made<br>
+      for possibility.
+    </h2>
+
+    <div class="facility-grid">
+
+      <div class="facility-card library">
+        <div>
+          <small>01 · KNOWLEDGE</small>
+          <h3>Central Library</h3>
+        </div>
+      </div>
+
+      <div class="facility-card hall">
+        <div>
+          <small>02 · CAMPUS</small>
+          <h3>Grand Hall</h3>
+        </div>
+      </div>
+
+      <div class="facility-card research">
+        <div>
+          <small>03 · RESEARCH</small>
+          <h3>Research Center</h3>
+        </div>
+      </div>
+
+    </div>
+
+  </section>
+
+
+  <!-- FACULTIES -->
+  <section id="faculties" class="section">
+
+    <p class="section-label">
+      ACADEMIC COMMUNITY
+    </p>
+
+    <h2>
+      Faculties &<br>
+      497 Faculty Members.
+    </h2>
+
+    <input
+      type="text"
+      id="facultySearch"
+      class="search-box"
+      placeholder="Cari dosen, fakultas, atau bidang..."
+    >
+
+    <div
+      id="facultyList"
+      class="faculty-list">
+    </div>
+
+  </section>
+
+
+  <!-- ADMISSION -->
+  <section id="admission" class="section">
+
+    <p class="section-label">
+      ADMISSIONS · PMB
+    </p>
+
+    <h2>
+      Find your place<br>
+      at Mowtown.
+    </h2>
+
+
+    <div class="admission-grid">
+
+
+      <!-- MINAT BAKAT -->
+      <div class="panel">
+
+        <h3>
+          Cari Minat & Bakat
+        </h3>
+
+        <p>
+          Halo calon mahasiswa Universitas of Mowtown.
+          Ceritakan keunggulan, hobi, minat, atau bakatmu.
+          Sistem akan memberikan rekomendasi fakultas.
+        </p>
+
+        <form id="interestForm">
+
+          <textarea
+            id="interestText"
+            placeholder="Contoh: saya suka menggambar, melukis, membuat desain..."
+            required>
+          </textarea>
+
+          <button type="submit">
+            Analisis Minat & Bakat
+          </button>
+
+        </form>
+
+        <div id="recommendation"></div>
+
+      </div>
+
+
+      <!-- PENDAFTARAN -->
+      <div class="panel">
+
+        <h3>
+          Form Pendaftaran
+        </h3>
+
+        <form id="registrationForm">
+
+          <input
+            id="studentName"
+            type="text"
+            placeholder="Nama lengkap"
+            required
+          >
+
+          <input
+            id="studentId"
+            type="text"
+            placeholder="NIK / ID Pendaftar"
+            required
+          >
+
+          <input
+            id="studentEmail"
+            type="email"
+            placeholder="Email"
+            required
+          >
+
+          <input
+            id="studentPhone"
+            type="text"
+            placeholder="Nomor WhatsApp Indonesia"
+            required
+          >
+
+          <input
+            id="studentSchool"
+            type="text"
+            placeholder="Asal SMA / SMK / MA / MAN"
+            required
+          >
+
+          <select
+            id="facultySelect"
+            required>
+          </select>
+
+          <select id="registrationPath">
+
+            <option>
+              UKT Regular
+            </option>
+
+            <option>
+              UKT Fast Track
+            </option>
+
+            <option>
+              Fully Funded Scholarship
+            </option>
+
+          </select>
+
+          <button type="submit">
+            Kirim Pendaftaran
+          </button>
+
+        </form>
+
+        <div id="registrationResult"></div>
+
+      </div>
+
+    </div>
+
+
+    <!-- LIVE APPLICANTS -->
+    <div class="live-counter">
+
+      <span class="live-dot"></span>
+
+      <span>
+        LIVE ·
+        <strong id="liveApplicants">
+          8,421
+        </strong>
+        pendaftar
+      </span>
+
+    </div>
+
+  </section>
+
+
+  <!-- EXAM CARD -->
+  <section id="exam" class="section">
+
+    <p class="section-label">
+      EXAMINATION
+    </p>
+
+    <h2>
+      Kartu Ujian.
+    </h2>
+
+    <div class="panel">
+
+      <p>
+        Masukkan nomor ujian yang diberikan sistem
+        setelah melakukan pendaftaran.
+      </p>
+
+      <form id="examCardForm">
+
+        <input
+          id="examNumberInput"
+          type="text"
+          placeholder="Contoh: UM-26-AB7K2P"
+          required
+        >
+
+        <button type="submit">
+          Verifikasi Nomor Ujian
+        </button>
+
+      </form>
+
+      <div id="examMessage"></div>
+
+    </div>
+
+    <div id="examCard"></div>
+
+  </section>
+
+
+  <!-- NEWS -->
+  <section id="news" class="section">
+
+    <p class="section-label">
+      MOWTOWN TODAY
+    </p>
+
+    <h2>
+      Latest News.
+    </h2>
+
+    <div id="newsList"></div>
+
+  </section>
+
+
+  <!-- FOOTER -->
+  <footer>
+
+    <p class="section-label">
+      UNIVERSITY OF MOWTOWN
+    </p>
+
+    <h2>
+      Knowledge.<br>
+      Character.<br>
+      Future.
+    </h2>
+
+  </footer>
+
+
+  <!-- ONLINE EXAM MODAL -->
+  <div
+    id="examModal"
+    class="modal">
+
+    <div class="exam-container">
+
+      <button
+        class="close-button"
+        onclick="closeOnlineExam()">
+        ×
+      </button>
+
+      <div id="onlineExam">
+      </div>
+
+    </div>
+
+  </div>
+
+
+  <script src="script.js"></script>
+
+</body>
+</html>
