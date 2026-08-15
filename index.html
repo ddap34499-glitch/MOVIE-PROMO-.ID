@@ -1,0 +1,1344 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>University of Mowtown</title>
+
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<!-- =========================
+     BACKGROUND
+========================= -->
+
+<div class="background-image"></div>
+<div class="background-overlay"></div>
+
+
+<!-- =========================
+     NAVBAR
+========================= -->
+
+<header class="navbar">
+
+    <div class="brand">
+        <div class="brand-logo">UM</div>
+
+        <div>
+            <strong>University of Mowtown</strong>
+            <span>47 Hectares Campus</span>
+        </div>
+    </div>
+
+    <nav>
+        <button class="nav-btn active" data-section="home">
+            Home
+        </button>
+
+        <button class="nav-btn" data-section="students">
+            Students
+        </button>
+
+        <button class="nav-btn" data-section="facilities">
+            Facilities
+        </button>
+
+        <button class="nav-btn" data-section="transport">
+            Campus Bus
+        </button>
+
+        <button class="nav-btn" data-section="museum">
+            Museum
+        </button>
+
+        <button class="nav-btn" data-section="merchandise">
+            Merchandise
+        </button>
+    </nav>
+
+</header>
+
+
+<main>
+
+<!-- =========================
+     HOME
+========================= -->
+
+<section id="home" class="section active">
+
+    <div class="hero">
+
+        <div class="hero-content">
+
+            <span class="eyebrow">
+                UNIVERSITY OF MOWTOWN
+            </span>
+
+            <h1>
+                Learn.
+                <span>Explore.</span>
+                Belong.
+            </h1>
+
+            <p>
+                A modern 47-hectare university campus designed
+                for learning, creativity, community and discovery.
+            </p>
+
+            <div class="hero-buttons">
+
+                <button
+                    class="primary-btn"
+                    onclick="showSection('transport')">
+                    Book Campus Bus
+                </button>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showSection('facilities')">
+                    Explore Campus
+                </button>
+
+            </div>
+
+        </div>
+
+
+        <div class="hero-card">
+
+            <div class="hero-card-image">
+                <img src="assets/lobby.jpg" alt="University Lobby">
+            </div>
+
+            <div class="hero-card-info">
+
+                <span>WELCOME TO</span>
+
+                <h3>
+                    University of Mowtown
+                </h3>
+
+                <p>
+                    Your campus. Your journey.
+                </p>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+    <!-- QUICK STATS -->
+
+    <div class="stats-grid">
+
+        <div class="stat-card">
+            <span>Campus Area</span>
+            <strong>47 Ha</strong>
+            <small>Green & connected campus</small>
+        </div>
+
+        <div class="stat-card">
+            <span>Students</span>
+            <strong>12,840</strong>
+            <small>Across multiple faculties</small>
+        </div>
+
+        <div class="stat-card">
+            <span>Bus Routes</span>
+            <strong>8</strong>
+            <small>Campus transportation</small>
+        </div>
+
+        <div class="stat-card">
+            <span>Facilities</span>
+            <strong>32+</strong>
+            <small>Academic & recreational</small>
+        </div>
+
+    </div>
+
+
+    <!-- FEATURED -->
+
+    <div class="section-heading">
+
+        <div>
+            <span class="eyebrow">CAMPUS LIFE</span>
+
+            <h2>
+                Everything in one campus.
+            </h2>
+        </div>
+
+        <p>
+            From classrooms and libraries to sports,
+            museums and green spaces.
+        </p>
+
+    </div>
+
+
+    <div class="feature-grid">
+
+        <article class="feature-card large">
+
+            <img
+                src="assets/library.jpg"
+                alt="Library">
+
+            <div class="feature-overlay">
+
+                <span>01</span>
+
+                <h3>
+                    Grand Library
+                </h3>
+
+                <p>
+                    A place to study, discover and create.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <img
+                src="assets/park.jpg"
+                alt="Campus Park">
+
+            <div class="feature-overlay">
+
+                <span>02</span>
+
+                <h3>
+                    Campus Park
+                </h3>
+
+            </div>
+
+        </article>
+
+
+        <article class="feature-card">
+
+            <img
+                src="assets/auditorium.jpg"
+                alt="Auditorium">
+
+            <div class="feature-overlay">
+
+                <span>03</span>
+
+                <h3>
+                    Main Auditorium
+                </h3>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     STUDENTS
+========================= -->
+
+<section id="students" class="section">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="eyebrow">
+                STUDENT DIRECTORY
+            </span>
+
+            <h2>
+                University Students
+            </h2>
+
+            <p>
+                Featured students from University of Mowtown.
+            </p>
+
+        </div>
+
+        <div class="student-counter">
+            <strong id="studentCount">10</strong>
+            <span>students shown</span>
+        </div>
+
+    </div>
+
+
+    <div class="student-grid" id="studentGrid">
+        <!-- JS -->
+    </div>
+
+
+    <div class="center-btn">
+
+        <button
+            class="primary-btn"
+            onclick="openStudentDirectory()">
+
+            Selengkapnya
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     FACILITIES
+========================= -->
+
+<section id="facilities" class="section">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="eyebrow">
+                CAMPUS FACILITIES
+            </span>
+
+            <h2>
+                Explore our facilities.
+            </h2>
+
+            <p>
+                Designed to support academic,
+                social and recreational activities.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="facility-grid">
+
+        <article class="facility-card">
+
+            <img src="assets/kkn.jpg">
+
+            <div>
+                <span>Academic</span>
+
+                <h3>
+                    KKN & Community Building
+                </h3>
+
+                <p>
+                    Collaborative spaces for community projects.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="facility-card">
+
+            <img src="assets/stadium.jpg">
+
+            <div>
+                <span>Sports</span>
+
+                <h3>
+                    Mowtown Stadium
+                </h3>
+
+                <p>
+                    Large-scale sporting and university events.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="facility-card">
+
+            <img src="assets/gym.jpg">
+
+            <div>
+                <span>Sports</span>
+
+                <h3>
+                    Fitness Center
+                </h3>
+
+                <p>
+                    Modern gym and training facilities.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="facility-card">
+
+            <img src="assets/pool.jpg">
+
+            <div>
+                <span>Sports</span>
+
+                <h3>
+                    Aquatic Center
+                </h3>
+
+                <p>
+                    Indoor swimming pool for students.
+                </p>
+            </div>
+
+        </article>
+
+
+        <article class="facility-card">
+
+            <img src="assets/classroom.jpg">
+
+            <div>
+                <span>Academic</span>
+
+                <h3>
+                    Smart Classroom
+                </h3>
+
+                <p>
+                    Comfortable rooms for lectures and discussions.
+                </p>
+
+            </div>
+
+        </article>
+
+
+        <article class="facility-card">
+
+            <img src="assets/auditorium.jpg">
+
+            <div>
+                <span>Events</span>
+
+                <h3>
+                    University Auditorium
+                </h3>
+
+                <p>
+                    Performances, seminars and university events.
+                </p>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     TRANSPORT
+========================= -->
+
+<section id="transport" class="section">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="eyebrow">
+                MOWTOWN CAMPUS TRANSIT
+            </span>
+
+            <h2>
+                Campus Bus
+            </h2>
+
+            <p>
+                Choose your route and reserve a seat.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="bus-layout">
+
+
+        <!-- BOOKING -->
+
+        <div class="bus-booking card">
+
+            <div class="card-title">
+
+                <div>
+                    <span>STEP 01</span>
+                    <h3>Select Route</h3>
+                </div>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Route
+                </label>
+
+                <select id="routeSelect">
+
+                    <option value="">
+                        Select campus route
+                    </option>
+
+                    <option value="apollo">
+                        Apollo Line
+                    </option>
+
+                    <option value="athena">
+                        Athena Line
+                    </option>
+
+                    <option value="zeus">
+                        Zeus Line
+                    </option>
+
+                    <option value="hermes">
+                        Hermes Line
+                    </option>
+
+                    <option value="artemis">
+                        Artemis Line
+                    </option>
+
+                    <option value="poseidon">
+                        Poseidon Line
+                    </option>
+
+                    <option value="demeter">
+                        Demeter Line
+                    </option>
+
+                    <option value="hestia">
+                        Hestia Line
+                    </option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Departure
+                </label>
+
+                <select id="timeSelect">
+
+                    <option value="">
+                        Select departure
+                    </option>
+
+                    <option>07:30</option>
+                    <option>08:00</option>
+                    <option>08:30</option>
+                    <option>09:00</option>
+                    <option>10:00</option>
+                    <option>12:00</option>
+                    <option>13:00</option>
+                    <option>15:00</option>
+                    <option>16:30</option>
+                    <option>18:00</option>
+
+                </select>
+
+            </div>
+
+
+            <div class="form-group">
+
+                <label>
+                    Bus Type
+                </label>
+
+                <div class="bus-type-buttons">
+
+                    <button
+                        class="bus-type active"
+                        data-type="regular">
+
+                        Regular Bus
+
+                    </button>
+
+                    <button
+                        class="bus-type"
+                        data-type="women">
+
+                        Women's Bus
+
+                    </button>
+
+                </div>
+
+            </div>
+
+
+            <div class="route-info" id="routeInfo">
+
+                <span>ROUTE</span>
+
+                <strong>
+                    Select a route
+                </strong>
+
+                <small>
+                    Your route information will appear here.
+                </small>
+
+            </div>
+
+        </div>
+
+
+
+        <!-- SEATS -->
+
+        <div class="seat-card card">
+
+            <div class="card-title">
+
+                <div>
+                    <span>STEP 02</span>
+
+                    <h3>
+                        Select Seat
+                    </h3>
+                </div>
+
+                <span id="seatStatus">
+                    0 selected
+                </span>
+
+            </div>
+
+
+            <div class="bus-visual">
+
+                <div class="driver">
+                    DRIVER
+                </div>
+
+
+                <div
+                    class="seat-map"
+                    id="seatMap">
+
+                    <!-- JS -->
+
+                </div>
+
+            </div>
+
+
+            <div class="seat-legend">
+
+                <span>
+                    <i class="legend available"></i>
+                    Available
+                </span>
+
+                <span>
+                    <i class="legend selected"></i>
+                    Selected
+                </span>
+
+                <span>
+                    <i class="legend booked"></i>
+                    Booked
+                </span>
+
+                <span>
+                    <i class="legend accessible"></i>
+                    Accessible
+                </span>
+
+                <span class="women-legend">
+                    <i class="legend women"></i>
+                    Women's Bus
+                </span>
+
+            </div>
+
+
+            <button
+                class="primary-btn full-btn"
+                onclick="bookBus()">
+
+                Get E-Ticket
+
+            </button>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MUSEUM
+========================= -->
+
+<section id="museum" class="section">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="eyebrow">
+                MOWTOWN MUSEUM
+            </span>
+
+            <h2>
+                Art, history & civilization.
+            </h2>
+
+            <p>
+                Explore collections inspired by world history
+                and classical civilization.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="museum-grid">
+
+        <article class="museum-card big">
+
+            <img src="assets/museum-exterior.jpg">
+
+            <div>
+                <span>EXTERIOR</span>
+                <h3>
+                    Museum Entrance
+                </h3>
+            </div>
+
+        </article>
+
+
+        <article class="museum-card">
+
+            <img src="assets/museum-hall.jpg">
+
+            <div>
+                <span>COLLECTION</span>
+
+                <h3>
+                    Ancient Civilization Hall
+                </h3>
+
+            </div>
+
+        </article>
+
+
+        <article class="museum-card">
+
+            <img src="assets/museum-gallery.jpg">
+
+            <div>
+                <span>ART</span>
+
+                <h3>
+                    Classical Gallery
+                </h3>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+
+
+<!-- =========================
+     MERCHANDISE
+========================= -->
+
+<section id="merchandise" class="section">
+
+    <div class="page-header">
+
+        <div>
+
+            <span class="eyebrow">
+                MOWTOWN STORE
+            </span>
+
+            <h2>
+                University Merchandise
+            </h2>
+
+            <p>
+                Bring a piece of Mowtown with you.
+            </p>
+
+        </div>
+
+    </div>
+
+
+    <div class="merch-grid">
+
+        <article class="merch-card">
+
+            <div class="merch-image">
+
+                <img
+                    src="assets/macbook.jpg"
+                    alt="Mowtown MacBook Merchandise">
+
+            </div>
+
+            <div class="merch-info">
+
+                <span>
+                    TECHNOLOGY
+                </span>
+
+                <h3>
+                    Mowtown MacBook Collection
+                </h3>
+
+                <strong>
+                    Rp 18.999.000
+                </strong>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showToast('Produk ditambahkan ke wishlist')">
+
+                    Add to Wishlist
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="merch-card simple-product">
+
+            <div class="product-icon">
+                UM
+            </div>
+
+            <div class="merch-info">
+
+                <span>
+                    APPAREL
+                </span>
+
+                <h3>
+                    Mowtown Varsity Jacket
+                </h3>
+
+                <strong>
+                    Rp 899.000
+                </strong>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showToast('Produk ditambahkan ke wishlist')">
+
+                    Add to Wishlist
+
+                </button>
+
+            </div>
+
+        </article>
+
+
+        <article class="merch-card simple-product">
+
+            <div class="product-icon gold">
+                ⚡
+            </div>
+
+            <div class="merch-info">
+
+                <span>
+                    ACCESSORIES
+                </span>
+
+                <h3>
+                    Mowtown Campus Pin
+                </h3>
+
+                <strong>
+                    Rp 75.000
+                </strong>
+
+                <button
+                    class="secondary-btn"
+                    onclick="showToast('Produk ditambahkan ke wishlist')">
+
+                    Add to Wishlist
+
+                </button>
+
+            </div>
+
+        </article>
+
+    </div>
+
+</section>
+
+</main>
+
+
+
+<!-- =========================
+     STUDENT MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="studentModal">
+
+    <div class="modal-box">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('studentModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="modal-header">
+
+            <span class="eyebrow">
+                STUDENT DIRECTORY
+            </span>
+
+            <h2>
+                All Students
+            </h2>
+
+        </div>
+
+
+        <div class="search-box">
+
+            <input
+                type="text"
+                id="studentSearch"
+                placeholder="Search student name..."
+                oninput="searchStudents()">
+
+        </div>
+
+
+        <div
+            class="directory-list"
+            id="directoryList">
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     E-TICKET MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="ticketModal">
+
+    <div class="ticket-modal">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('ticketModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="ticket-top">
+
+            <div>
+
+                <span>
+                    UNIVERSITY OF MOWTOWN
+                </span>
+
+                <h2>
+                    E-TICKET
+                </h2>
+
+            </div>
+
+            <div class="ticket-logo">
+                UM
+            </div>
+
+        </div>
+
+
+        <div class="ticket-route">
+
+            <div>
+
+                <small>FROM</small>
+
+                <strong id="ticketFrom">
+                    -
+                </strong>
+
+            </div>
+
+            <div class="route-arrow">
+                →
+            </div>
+
+            <div>
+
+                <small>TO</small>
+
+                <strong id="ticketTo">
+                    -
+                </strong>
+
+            </div>
+
+        </div>
+
+
+        <div class="ticket-details">
+
+            <div>
+                <span>Route</span>
+                <strong id="ticketRoute">-</strong>
+            </div>
+
+            <div>
+                <span>Departure</span>
+                <strong id="ticketTime">-</strong>
+            </div>
+
+            <div>
+                <span>Seat</span>
+                <strong id="ticketSeat">-</strong>
+            </div>
+
+            <div>
+                <span>Bus</span>
+                <strong id="ticketBus">-</strong>
+            </div>
+
+        </div>
+
+
+        <div class="qr">
+
+            <div class="qr-pattern">
+                ▦
+            </div>
+
+            <div>
+                <strong id="ticketId">
+                    MOW-000000
+                </strong>
+
+                <small>
+                    Scan at campus bus entrance
+                </small>
+            </div>
+
+        </div>
+
+
+        <button
+            class="primary-btn full-btn"
+            onclick="showBusMap()">
+
+            Track Bus on Map
+
+        </button>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     BUS MAP MODAL
+========================= -->
+
+<div
+    class="modal"
+    id="mapModal">
+
+    <div class="map-modal">
+
+        <button
+            class="close-btn"
+            onclick="closeModal('mapModal')">
+
+            ×
+
+        </button>
+
+
+        <div class="map-header">
+
+            <div>
+
+                <span class="eyebrow">
+                    LIVE CAMPUS TRANSIT
+                </span>
+
+                <h2>
+                    Campus Bus Map
+                </h2>
+
+            </div>
+
+
+            <div class="bus-live">
+
+                <i></i>
+                LIVE
+
+            </div>
+
+        </div>
+
+
+        <div class="campus-map">
+
+            <!-- roads -->
+
+            <div class="road road-1"></div>
+            <div class="road road-2"></div>
+            <div class="road road-3"></div>
+
+
+            <!-- faculties -->
+
+            <div class="map-building building-a">
+                Faculty of Science
+            </div>
+
+            <div class="map-building building-b">
+                Faculty of Arts
+            </div>
+
+            <div class="map-building building-c">
+                Faculty of Business
+            </div>
+
+            <div class="map-building building-d">
+                Faculty of Engineering
+            </div>
+
+            <div class="map-building building-e">
+                Main Library
+            </div>
+
+            <div class="map-building building-f">
+                Student Center
+            </div>
+
+
+            <!-- park -->
+
+            <div class="map-park">
+                <span>Campus Park</span>
+
+                <div class="tree t1">🌳</div>
+                <div class="tree t2">🌳</div>
+                <div class="tree t3">🌳</div>
+                <div class="tree t4">🌳</div>
+                <div class="tree t5">🌳</div>
+
+            </div>
+
+
+            <!-- bus -->
+
+            <div
+                class="animated-bus"
+                id="animatedBus">
+
+                🚌
+
+            </div>
+
+
+            <!-- stops -->
+
+            <div class="bus-stop stop-1">
+                <span></span>
+                Main Gate
+            </div>
+
+            <div class="bus-stop stop-2">
+                <span></span>
+                Athena Hall
+            </div>
+
+            <div class="bus-stop stop-3">
+                <span></span>
+                Library
+            </div>
+
+            <div class="bus-stop stop-4">
+                <span></span>
+                Student Center
+            </div>
+
+
+            <div class="you-location">
+                <div></div>
+                You
+            </div>
+
+        </div>
+
+
+        <div class="map-bottom">
+
+            <div>
+
+                <span>
+                    ESTIMATED ARRIVAL
+                </span>
+
+                <strong id="arrivalTime">
+                    3 min
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    BUS
+                </span>
+
+                <strong id="mapBusName">
+                    Mowtown 01
+                </strong>
+
+            </div>
+
+
+            <div>
+
+                <span>
+                    STATUS
+                </span>
+
+                <strong class="on-route">
+                    On route
+                </strong>
+
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+
+
+<!-- =========================
+     TOAST
+========================= -->
+
+<div
+    class="toast"
+    id="toast">
+
+    <span id="toastMessage">
+        Done
+    </span>
+
+</div>
+
+
+<footer>
+
+    <div class="footer-brand">
+        <div class="brand-logo">
+            UM
+        </div>
+
+        <div>
+            <strong>
+                University of Mowtown
+            </strong>
+
+            <span>
+                47 hectares of possibilities.
+            </span>
+        </div>
+    </div>
+
+
+    <p>
+        © 2026 University of Mowtown.
+        Campus Digital Experience.
+    </p>
+
+</footer>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
