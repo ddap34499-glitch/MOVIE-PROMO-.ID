@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>University of Mowtown</title>
+<link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+<nav>
+  <a class="logo" href="#home">UM<span>.</span></a>
+
+  <div class="navlinks" id="navlinks">
+    <a href="#about">About</a>
+    <a href="#facilities">Campus</a>
+    <a href="#faculty">Faculty</a>
+    <a href="#admission">Admissions</a>
+    <a href="#exam">Exam</a>
+    <a href="#leaderboard">Leaderboard</a>
+    <a href="#news">News</a>
+  </div>
+
+  <button class="menu" onclick="toggleMenu()">☰</button>
+</nav>
+
+<header class="hero" id="home">
+  <div class="heroContent">
+    <div class="eyebrow">EST. 1932 · INDONESIA · 47 HA</div>
+
+    <h1>University<br>of Mowtown</h1>
+
+    <p>
+      Knowledge. Character. Future.
+      Sebuah universitas dengan tradisi akademik,
+      teknologi dan kehidupan kampus yang terus berkembang.
+    </p>
+
+    <div class="heroStats">
+      <div><strong>47</strong><span>Hectares</span></div>
+      <div><strong>52,847</strong><span>Students</span></div>
+      <div><strong>497</strong><span>Faculty</span></div>
+      <div><strong id="applicantTop">8,421</strong><span>Applicants</span></div>
+    </div>
+  </div>
+</header>
+
+<section id="about">
+  <div class="about">
+    <div>
+      <div class="label">THE UNIVERSITY</div>
+      <h2 class="title">
+        Built to endure.<br>
+        Designed to inspire.
+      </h2>
+
+      <p class="description">
+        University of Mowtown merupakan universitas fiktif
+        dengan kampus seluas 47 hektare, berbagai fakultas,
+        pusat riset, perpustakaan, transportasi kampus,
+        sistem penerimaan mahasiswa dan ujian digital.
+      </p>
+
+      <div class="rector">
+        <strong>Prof. Daffi Kautsar, M.A., Ph.D., LL.D., D.Litt., D.Sc.</strong>
+        <span>Rector & Chancellor · University of Mowtown</span>
+      </div>
+    </div>
+
+    <div class="aboutImg"></div>
+  </div>
+</section>
+
+<section class="dark" id="facilities">
+  <div class="label">CAMPUS LIFE</div>
+  <h2 class="title">Spaces made<br>for possibility.</h2>
+
+  <div class="facilities">
+    <div class="facility big"
+      style="background-image:url('https://images.unsplash.com/photo-1562774053-701939374585?auto=format&fit=crop&w=1400&q=85')">
+      <div class="facilityInfo">
+        <span>01 · MAIN CAMPUS</span>
+        <h3>Mowtown Grand Hall</h3>
+      </div>
+    </div>
+
+    <div class="facility"
+      style="background-image:url('https://images.unsplash.com/photo-1568667256549-094345857637?auto=format&fit=crop&w=1000&q=85')">
+      <div class="facilityInfo">
+        <span>02 · KNOWLEDGE</span>
+        <h3>Central Library</h3>
+      </div>
+    </div>
+
+    <div class="facility"
+      style="background-image:url('https://images.unsplash.com/photo-1576495199011-eb94736c0f5a?auto=format&fit=crop&w=1000&q=85')">
+      <div class="facilityInfo">
+        <span>03 · RESEARCH</span>
+        <h3>Research Center</h3>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section id="faculty">
+  <div class="label">ACADEMIC COMMUNITY</div>
+  <h2 class="title">497 Faculty Members.</h2>
+
+  <p class="muted">
+    Cari dosen, fakultas atau bidang keahlian.
+  </p>
+
+  <div class="facTools">
+    <input id="facultySearch"
+      placeholder="Cari dosen / fakultas / bidang...">
+    <button class="btn" onclick="renderFaculty()">Cari</button>
+  </div>
+
+  <div class="facList" id="facultyList"></div>
+</section>
+
+<section id="admission">
+
+  <div class="label">ADMISSIONS · PMB</div>
+  <h2 class="title">Find your place at Mowtown.</h2>
+
+  <div class="grid2">
+
+    <div class="panel">
+      <span class="step">01</span>
+      <h2>Ceritakan Keunggulanmu</h2>
+
+      <p class="muted">
+        Tidak tahu bakatmu? Tidak masalah.
+        Ceritakan apa yang kamu suka dan sistem akan
+        mendeteksi kata kunci lalu memberikan rekomendasi
+        fakultas yang paling relevan.
+      </p>
+
+      <form class="form" onsubmit="recommend(event)">
+        <textarea id="strength"
+        placeholder="Contoh: aku suka gambar, bikin logo, desain poster dan edit foto..."
+        required></textarea>
+
+        <button class="btn gold">
+          ✦ Analisis Minat & Bakat
+        </button>
+      </form>
+
+      <div id="recommendStatus"></div>
+    </div>
+
+
+    <div class="panel">
+      <span class="step">02</span>
+      <h2>Forum Pendaftaran</h2>
+
+      <form class="form" onsubmit="register(event)">
+
+        <div class="two">
+          <div>
+            <label>Nama Lengkap</label>
+            <input id="name" required>
+          </div>
+
+          <div>
+            <label>NIK / ID Pendaftar</label>
+            <input id="identity" placeholder="Isi nomor apa saja" required>
+          </div>
+        </div>
+
+        <div class="two">
+          <div>
+            <label>Email</label>
+            <input id="email" type="email" required>
+          </div>
+
+          <div>
+            <label>No. WhatsApp</label>
+            <input id="phone" placeholder="08xxxxxxxxxx" required>
+          </div>
+        </div>
+
+        <label>Asal SMA / MA / SMK</label>
+        <input id="school" placeholder="Contoh: SMA Mowtown 1" required>
+
+        <div class="two">
+          <div>
+            <label>Fakultas Pilihan</label>
+            <select id="facultyChoice"></select>
+          </div>
+
+          <div>
+            <label>Jalur</label>
+            <select id="path">
+              <option>UKT Regular</option>
+              <option>UKT Fast Track</option>
+              <option>Fully Funded Scholarship</option>
+            </select>
+          </div>
+        </div>
+
+        <button class="btn">Daftar & Buat Kartu Ujian</button>
+
+      </form>
+
+      <div id="registerStatus"></div>
+    </div>
+
+  </div>
+</section>
+
+<section id="exam">
+  <div class="label">SELEKSI MOWTOWN</div>
+  <h2 class="title">Kartu Ujian & Exam Center.</h2>
+
+  <div class="grid2">
+
+    <div class="panel">
+      <h2>Masukkan Nomor Ujian</h2>
+
+      <p class="muted">
+        Setelah pendaftaran berhasil, masukkan nomor
+        ujian untuk membuka kartu dan memulai ujian.
+      </p>
+
+      <form class="form" onsubmit="verifyExam(event)">
+        <input id="examNumber"
+          placeholder="UM-26-XXXXXX"
+          required>
+
+        <button class="btn">
+          Verifikasi & Mulai
+        </button>
+      </form>
+
+      <div id="examStatus"></div>
+    </div>
+
+    <div class="panel examInfoPanel">
+      <div class="live"><i></i> EXAM CENTER ONLINE</div>
+
+      <h2>Aturan Tahap 1</h2>
+
+      <ul>
+        <li>Soal khusus sesuai fakultas.</li>
+        <li>Tidak ada soal campuran.</li>
+        <li>Level soal setara kelas 8 SMP.</li>
+        <li>20 soal.</li>
+        <li>Nilai dihitung otomatis.</li>
+        <li>Nilai minimal lulus: <b>89.77</b>.</li>
+      </ul>
+    </div>
+
+  </div>
+</section>
+
+<section id="leaderboard">
+
+  <div class="label">LIVE ACADEMIC RANKING</div>
+
+  <h2 class="title">Mowtown Leaderboard.</h2>
+
+  <div class="leaderTop">
+    <span class="live"><i></i> LIVE · UPDATE 10 DETIK</span>
+    <strong id="leaderClock">00:10</strong>
+  </div>
+
+  <div class="leaderboard" id="leaderboardList"></div>
+
+</section>
+
+<section id="news">
+
+  <div class="label">MOWTOWN TODAY</div>
+  <h2 class="title">Latest News.</h2>
+
+  <div class="news" id="newsList"></div>
+
+</section>
+
+<footer>
+  <div class="label">UNIVERSITY OF MOWTOWN</div>
+
+  <h2>
+    Knowledge.<br>
+    Character.<br>
+    Future.
+  </h2>
+
+  <button class="busButton" onclick="openBus()">
+    ☰ &nbsp; Mowtown Campus Bus
+  </button>
+</footer>
+
+
+<!-- MODAL -->
+
+<div class="modal" id="modal">
+  <div class="modalBox">
+
+    <button class="close" onclick="closeModal()">×</button>
+
+    <div id="modalContent"></div>
+
+  </div>
+</div>
+
+
+<script src="script.js"></script>
+
+</body>
+</html>
