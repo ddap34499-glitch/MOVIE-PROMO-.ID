@@ -2415,3 +2415,483 @@ footer {
   }
 
 }
+/* =========================================================
+   UNIVERSITY OF MOWTOWN — VISUAL POLISH
+   paste di PALING BAWAH style.css
+========================================================= */
+
+:root {
+  --mow-ink: #111827;
+  --mow-muted: #667085;
+  --mow-paper: #f7f7f4;
+  --mow-white: #ffffff;
+  --mow-line: rgba(17, 24, 39, 0.1);
+  --mow-gold: #b08a45;
+  --mow-gold-light: #d8bd82;
+  --mow-green: #173f35;
+  --mow-green-light: #23594b;
+  --mow-shadow: 0 20px 60px rgba(17, 24, 39, 0.09);
+  --mow-radius: 24px;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background:
+    radial-gradient(
+      circle at 10% 5%,
+      rgba(176, 138, 69, 0.07),
+      transparent 28%
+    ),
+    var(--mow-paper);
+
+  color: var(--mow-ink);
+  line-height: 1.65;
+  -webkit-font-smoothing: antialiased;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+img {
+  display: block;
+  max-width: 100%;
+}
+
+a,
+button,
+input,
+select {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease,
+    background 0.25s ease,
+    border-color 0.25s ease,
+    color 0.25s ease;
+}
+
+/* =========================
+   NAVBAR
+========================= */
+
+nav {
+  background: rgba(255, 255, 255, 0.9) !important;
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+  border-bottom: 1px solid var(--mow-line);
+  box-shadow: 0 8px 30px rgba(0, 0, 0, 0.035);
+}
+
+nav a {
+  position: relative;
+  text-decoration: none;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 50%;
+  bottom: -7px;
+  width: 0;
+  height: 2px;
+  background: var(--mow-gold);
+  transform: translateX(-50%);
+  transition: width 0.25s ease;
+}
+
+nav a:hover::after {
+  width: 70%;
+}
+
+/* =========================
+   HERO
+========================= */
+
+section:first-of-type {
+  position: relative;
+  overflow: hidden;
+}
+
+section:first-of-type::before {
+  content: "";
+  position: absolute;
+  width: 450px;
+  height: 450px;
+  right: -180px;
+  top: -180px;
+  border-radius: 50%;
+
+  background: radial-gradient(
+    circle,
+    rgba(176, 138, 69, 0.16),
+    transparent 70%
+  );
+
+  pointer-events: none;
+}
+
+section:first-of-type h1 {
+  letter-spacing: -0.045em;
+  line-height: 0.98;
+  text-wrap: balance;
+}
+
+section:first-of-type p {
+  color: var(--mow-muted);
+}
+
+/* =========================
+   BUTTONS
+========================= */
+
+button {
+  border-radius: 999px;
+}
+
+button:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 25px rgba(17, 24, 39, 0.12);
+}
+
+button:active {
+  transform: translateY(0);
+}
+
+/* =========================
+   SECTION
+========================= */
+
+section {
+  position: relative;
+  scroll-margin-top: 90px;
+}
+
+section h2 {
+  letter-spacing: -0.035em;
+  line-height: 1.05;
+}
+
+section h3 {
+  letter-spacing: -0.02em;
+}
+
+/* =========================
+   CARDS
+========================= */
+
+section article,
+section [class*="card"],
+section [class*="Card"] {
+  border-color: var(--mow-line);
+
+  transition:
+    transform 0.3s ease,
+    box-shadow 0.3s ease,
+    border-color 0.3s ease;
+}
+
+section article:hover,
+section [class*="card"]:hover,
+section [class*="Card"]:hover {
+  transform: translateY(-5px);
+
+  box-shadow: var(--mow-shadow);
+
+  border-color: rgba(176, 138, 69, 0.28);
+}
+
+/* =========================
+   IMAGES
+========================= */
+
+section img {
+  border-radius: 20px;
+  object-fit: cover;
+
+  transition:
+    transform 0.55s cubic-bezier(0.2, 0.8, 0.2, 1),
+    filter 0.35s ease;
+}
+
+section img:hover {
+  transform: scale(1.025);
+  filter: saturate(1.08);
+}
+
+/* =========================
+   STATISTICS
+========================= */
+
+section:first-of-type strong,
+section:first-of-type b {
+  font-variant-numeric: tabular-nums;
+}
+
+/* =========================
+   ACADEMIC SECTION
+========================= */
+
+section:nth-of-type(3) {
+  background:
+    linear-gradient(
+      135deg,
+      rgba(23, 63, 53, 0.035),
+      transparent 55%
+    );
+}
+
+/* =========================
+   TABLE
+========================= */
+
+table {
+  width: 100%;
+  border-collapse: separate;
+  border-spacing: 0;
+
+  overflow: hidden;
+
+  border: 1px solid var(--mow-line);
+  border-radius: 20px;
+
+  background: var(--mow-white);
+
+  box-shadow: 0 12px 40px rgba(17, 24, 39, 0.055);
+}
+
+thead th {
+  background: #f1f1ec;
+  color: var(--mow-ink);
+  font-weight: 700;
+  letter-spacing: 0.03em;
+}
+
+th,
+td {
+  padding: 15px 18px;
+  border-bottom: 1px solid var(--mow-line);
+}
+
+tbody tr:last-child td {
+  border-bottom: 0;
+}
+
+tbody tr {
+  transition: background 0.2s ease;
+}
+
+tbody tr:hover {
+  background: rgba(176, 138, 69, 0.055);
+}
+
+/* =========================
+   FORM
+========================= */
+
+input,
+select {
+  width: 100%;
+  min-height: 48px;
+
+  border: 1px solid rgba(17, 24, 39, 0.13);
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.92);
+
+  padding: 0 15px;
+
+  color: var(--mow-ink);
+  outline: none;
+}
+
+input::placeholder {
+  color: #98a0ad;
+}
+
+input:hover,
+select:hover {
+  border-color: rgba(176, 138, 69, 0.5);
+}
+
+input:focus,
+select:focus {
+  border-color: var(--mow-gold);
+
+  box-shadow:
+    0 0 0 4px rgba(176, 138, 69, 0.12);
+}
+
+/* =========================
+   BUS SYSTEM
+========================= */
+
+[class*="bus"],
+[id*="bus"] {
+  transition:
+    transform 0.25s ease,
+    box-shadow 0.25s ease;
+}
+
+[class*="bus"]:hover,
+[id*="bus"]:hover {
+  transform: translateY(-3px);
+}
+
+/* =========================
+   MAP
+========================= */
+
+[class*="map"],
+[id*="map"] {
+  border-radius: 24px;
+  overflow: hidden;
+}
+
+/* =========================
+   WOMEN'S BUS
+========================= */
+
+input[type="checkbox"]:checked {
+  accent-color: #d96c91;
+}
+
+/* =========================
+   TICKET
+========================= */
+
+[class*="ticket"],
+[id*="ticket"] {
+  border-radius: 24px;
+
+  border: 1px solid rgba(176, 138, 69, 0.22);
+
+  background:
+    linear-gradient(
+      135deg,
+      rgba(255, 255, 255, 0.98),
+      rgba(247, 247, 244, 0.96)
+    );
+
+  box-shadow: var(--mow-shadow);
+}
+
+/* =========================
+   MODAL
+========================= */
+
+dialog,
+[class*="modal"],
+[class*="Modal"] {
+  border-radius: 28px;
+
+  border: 1px solid var(--mow-line);
+
+  box-shadow:
+    0 35px 100px rgba(0, 0, 0, 0.2);
+}
+
+dialog::backdrop {
+  background: rgba(10, 15, 20, 0.55);
+  backdrop-filter: blur(8px);
+}
+
+/* =========================
+   FOOTER
+========================= */
+
+footer {
+  border-top: 1px solid var(--mow-line);
+
+  background: #101d1a;
+
+  color: rgba(255, 255, 255, 0.82);
+}
+
+footer a {
+  color: rgba(255, 255, 255, 0.72);
+}
+
+footer a:hover {
+  color: white;
+}
+
+/* =========================
+   MOBILE
+========================= */
+
+@media (max-width: 768px) {
+
+  body {
+    overflow-x: hidden;
+  }
+
+  section {
+    padding-left: 20px !important;
+    padding-right: 20px !important;
+  }
+
+  section:first-of-type h1 {
+    font-size: clamp(3rem, 15vw, 5rem);
+  }
+
+  h2 {
+    font-size: clamp(2rem, 9vw, 3rem);
+  }
+
+  section img {
+    border-radius: 16px;
+  }
+
+  nav {
+    padding-left: 18px;
+    padding-right: 18px;
+  }
+
+  table {
+    font-size: 0.9rem;
+  }
+
+  th,
+  td {
+    padding: 12px 10px;
+  }
+}
+
+/* =========================
+   SMALL PHONE
+========================= */
+
+@media (max-width: 480px) {
+
+  section:first-of-type h1 {
+    font-size: 3.1rem;
+  }
+
+  button {
+    min-height: 46px;
+  }
+
+  input,
+  select {
+    min-height: 50px;
+  }
+}
+
+/* =========================
+   ACCESSIBILITY
+========================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    transition: none !important;
+    animation: none !important;
+  }
+
+}
