@@ -1,0 +1,279 @@
+* { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif; }
+
+body {
+    background-color: #f3efe6;
+    color: #2b2b2b;
+    display: flex;
+    justify-content: center;
+    min-height: 100vh;
+}
+.phone-container {
+    width: 100%;
+    max-width: 480px;
+    background: #ffffff;
+    min-height: 100vh;
+    box-shadow: 0 0 25px rgba(153, 0, 0, 0.15);
+    display: flex;
+    flex-direction: column;
+    position: relative;
+    padding-bottom: 40px;
+    border-left: 2px solid #e6dcc8;
+    border-right: 2px solid #e6dcc8;
+}
+
+/* Top Bar */
+.top-bar {
+    background: #ffffff;
+    padding: 14px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 2px solid #f0e6d2;
+    position: sticky;
+    top: 0;
+    z-index: 100;
+}
+.brand-title { font-size: 17px; font-weight: 900; color: #990000; letter-spacing: 0.8px; text-transform: uppercase; }
+.top-icons { display: flex; gap: 16px; font-size: 16px; }
+
+/* Banner Slider */
+.banner-container {
+    padding: 14px 16px 4px 16px;
+    background: #fdfbf7;
+}
+.banner-scroll {
+    display: flex;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    gap: 12px;
+    scrollbar-width: none;
+    scroll-behavior: smooth;
+    border-radius: 12px;
+}
+.banner-scroll::-webkit-scrollbar { display: none; }
+.banner-slide {
+    flex: 0 0 100%;
+    width: 100%;
+    height: 180px;
+    border-radius: 12px;
+    background-size: cover;
+    background-position: center;
+    scroll-snap-align: start;
+    box-shadow: 0 4px 12px rgba(0,0,0,0.12);
+    flex-shrink: 0;
+    border: 1px solid #e2d7c1;
+}
+.banner-dots {
+    display: flex;
+    justify-content: center;
+    gap: 6px;
+    margin-top: 8px;
+    margin-bottom: 4px;
+}
+.dot {
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: #d4c5a9;
+    transition: background 0.3s;
+}
+.dot.active {
+    background: #990000;
+    width: 18px;
+    border-radius: 3px;
+}
+
+/* Rumus Harga Box */
+.promo-info-box {
+    margin: 8px 16px 14px 16px;
+    background: #fcf9f2;
+    border: 1px solid #d4c5a9;
+    border-left: 4px solid #990000;
+    border-radius: 8px;
+    padding: 12px;
+    font-size: 12px;
+    color: #4a4238;
+    line-height: 1.4;
+}
+.promo-info-box b { color: #990000; }
+
+/* Section Header */
+.section-header {
+    padding: 8px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+.section-title { font-size: 16px; font-weight: 800; color: #1a1a1a; }
+.see-all { font-size: 13px; color: #990000; font-weight: 700; text-decoration: none; }
+
+/* Filter Chips */
+.filter-chips {
+    display: flex;
+    gap: 8px;
+    padding: 0 16px 14px 16px;
+    overflow-x: auto;
+    scrollbar-width: none;
+}
+.filter-chips::-webkit-scrollbar { display: none; }
+.chip {
+    padding: 6px 14px;
+    background: #f3efe6;
+    border: 1px solid #e2d7c1;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: 600;
+    color: #555;
+    white-space: nowrap;
+    cursor: pointer;
+}
+.chip.active { background: #990000; color: white; border-color: #990000; }
+
+/* Poster Film */
+.movies-horizontal-scroll {
+    display: flex;
+    gap: 12px;
+    overflow-x: auto;
+    padding: 0 16px 16px 16px;
+    scrollbar-width: none;
+    scroll-snap-type: x mandatory;
+}
+.movies-horizontal-scroll::-webkit-scrollbar { display: none; }
+
+.movie-card-tix {
+    flex: 0 0 135px;
+    scroll-snap-align: start;
+    text-align: left;
+}
+.movie-poster-tix {
+    width: 135px;
+    height: 200px;
+    border-radius: 10px;
+    object-fit: cover;
+    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    border: 1px solid #e2d7c1;
+    cursor: pointer;
+    transition: transform 0.2s;
+}
+.movie-poster-tix:hover { transform: scale(1.03); }
+
+.movie-title-tix {
+    font-size: 13px;
+    font-weight: 700;
+    color: #1a1a1a;
+    margin-top: 6px;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    cursor: pointer;
+}
+.movie-tag-tix {
+    font-size: 11px;
+    color: #990000;
+    font-weight: 700;
+    margin-bottom: 6px;
+}
+
+/* Tombol Trailer */
+.trailer-btn {
+    width: 100%;
+    background: #fff5f5;
+    border: 1px solid #f5c6c6;
+    border-radius: 6px;
+    padding: 6px 0;
+    font-size: 10px;
+    font-weight: 700;
+    color: #990000;
+    cursor: pointer;
+    text-align: center;
+    transition: background 0.2s;
+}
+.trailer-btn:hover { background: #ffe3e3; }
+
+/* Modal Popup */
+.modal-overlay {
+    display: none;
+    position: fixed;
+    top: 0; left: 0; width: 100%; height: 100%;
+    background: rgba(0, 0, 0, 0.85);
+    z-index: 1000;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.modal-content {
+    width: 100%;
+    max-width: 450px;
+    background: #000;
+    border-radius: 12px;
+    overflow: hidden;
+    position: relative;
+    box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+    border: 2px solid #990000;
+}
+.close-modal {
+    position: absolute;
+    top: 10px; right: 15px;
+    color: white;
+    font-size: 24px;
+    font-weight: bold;
+    cursor: pointer;
+    z-index: 1010;
+}
+.video-container {
+    position: relative;
+    width: 100%;
+    padding-bottom: 56.25%;
+    height: 0;
+}
+.video-container iframe {
+    position: absolute;
+    top: 0; left: 0; width: 100%; height: 100%;
+    border: none;
+}
+
+/* Form Order */
+.order-container {
+    background: #fdfbf7;
+    border-top: 8px solid #f3efe6;
+    padding: 18px 16px;
+}
+.form-title { font-size: 16px; font-weight: 800; margin-bottom: 14px; color: #990000; border-bottom: 2px solid #e2d7c1; padding-bottom: 6px; }
+.form-group { margin-bottom: 12px; }
+.form-label { display: block; font-size: 12px; font-weight: 700; color: #4a4238; margin-bottom: 4px; }
+.form-control {
+    width: 100%;
+    padding: 10px 12px;
+    background: #ffffff;
+    border: 1px solid #d4c5a9;
+    border-radius: 8px;
+    font-size: 13px;
+    color: #1a1a1a;
+}
+.form-control:focus { outline: none; border-color: #990000; background: #fff; box-shadow: 0 0 5px rgba(153,0,0,0.2); }
+.price-preview {
+    background: #fff5f5;
+    border: 1px solid #f5c6c6;
+    border-radius: 8px;
+    padding: 10px 12px;
+    font-size: 12px;
+    color: #990000;
+    margin-top: 8px;
+    font-weight: 700;
+}
+.submit-btn {
+    width: 100%;
+    background-color: #990000;
+    color: white;
+    padding: 14px;
+    border: none;
+    border-radius: 10px;
+    font-size: 14px;
+    font-weight: 800;
+    cursor: pointer;
+    margin-top: 15px;
+    box-shadow: 0 4px 12px rgba(153,0,0,0.3);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+.submit-btn:hover { background-color: #7a0000; }
