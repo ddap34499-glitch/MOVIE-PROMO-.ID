@@ -1,4 +1,5 @@
 console.log("SCRIPT BERJALAN");
+alert("SCRIPT BERJALAN");
 /*=========================================================
  MOVIE PROMO.ID
  Version : Final
