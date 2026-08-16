@@ -59,30 +59,22 @@ STATUS_INFO.innerHTML="Mimin juga manusia, ayo tidur kalau manusia 😴";
 }
 
 updateStatus();
+window.addEventListener("load", () => {
+    const loading = document.getElementById("loading");
 
-/*=========================================================
- LOADING
-=========================================================*/
+    if (!loading) return;
 
-window.addEventListener("load",()=>{
+    setTimeout(() => {
+        loading.style.opacity = "0";
+        loading.style.pointerEvents = "none";
 
-const loading=document.getElementById("loading");
-
-setTimeout(()=>{
-
-loading.style.opacity="0";
-
-loading.style.pointerEvents="none";
-
-setTimeout(()=>{
-
-loading.remove();
-
-},600);
-
-},1200);
-
+        setTimeout(() => {
+            loading.remove();
+        }, 600);
+    }, 1200);
 });
+
+
 
 /*=========================================================
  QUOTES
