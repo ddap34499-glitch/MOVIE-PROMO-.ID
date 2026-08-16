@@ -1,0 +1,318 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>MOVIE PROMO.id - Jasa Titip Tiket Bioskop</title>
+    <style>
+        /* === BAGIAN CSS (DESAIN TEMA KERAJAAN) === */
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Arial, sans-serif; }
+        body { background-color: #f3efe6; color: #2b2b2b; display: flex; justify-content: center; min-height: 100vh; }
+        .phone-container { width: 100%; max-width: 480px; background: #ffffff; min-height: 100vh; box-shadow: 0 0 25px rgba(153, 0, 0, 0.15); display: flex; flex-direction: column; position: relative; padding-bottom: 40px; border-left: 2px solid #e6dcc8; border-right: 2px solid #e6dcc8; }
+        
+        .top-bar { background: #ffffff; padding: 14px 16px; display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid #f0e6d2; position: sticky; top: 0; z-index: 100; }
+        .brand-title { font-size: 15px; font-weight: 900; color: #990000; letter-spacing: 0.5px; text-transform: uppercase; }
+        .top-status { font-size: 11px; font-weight: 800; padding: 4px 10px; border-radius: 12px; background: #e2d7c1; color: #333; text-align: center; }
+        
+        .banner-container { padding: 14px 16px 4px 16px; background: #fdfbf7; }
+        .banner-scroll { display: flex; overflow-x: auto; scroll-snap-type: x mandatory; gap: 12px; scrollbar-width: none; scroll-behavior: smooth; border-radius: 12px; }
+        .banner-scroll::-webkit-scrollbar { display: none; }
+        .banner-slide { flex: 0 0 100%; width: 100%; height: 180px; border-radius: 12px; background-size: cover; background-position: center; scroll-snap-align: start; box-shadow: 0 4px 12px rgba(0,0,0,0.12); border: 1px solid #e2d7c1; }
+        
+        .promo-info-box { margin: 12px 16px; background: #fcf9f2; border: 1px solid #d4c5a9; border-left: 4px solid #990000; border-radius: 8px; padding: 12px; font-size: 12px; color: #4a4238; line-height: 1.5; }
+        .promo-info-box b { color: #990000; }
+        
+        .section-header { padding: 8px 16px; display: flex; justify-content: space-between; align-items: center; }
+        .section-title { font-size: 16px; font-weight: 800; color: #1a1a1a; }
+        
+        .movies-horizontal-scroll { display: flex; gap: 12px; overflow-x: auto; padding: 0 16px 16px 16px; scrollbar-width: none; scroll-snap-type: x mandatory; }
+        .movies-horizontal-scroll::-webkit-scrollbar { display: none; }
+        .movie-card-tix { flex: 0 0 135px; scroll-snap-align: start; text-align: left; }
+        .movie-poster-tix { width: 135px; height: 200px; border-radius: 10px; object-fit: cover; box-shadow: 0 4px 10px rgba(0,0,0,0.15); border: 1px solid #e2d7c1; cursor: pointer; transition: transform 0.2s; }
+        .movie-poster-tix:hover { transform: scale(1.03); }
+        .movie-title-tix { font-size: 13px; font-weight: 700; color: #1a1a1a; margin-top: 6px; white-space: nowrap; overflow: hidden; text-overflow: ellipsis; cursor: pointer; }
+        .movie-tag-tix { font-size: 11px; color: #990000; font-weight: 700; margin-bottom: 6px; }
+        
+        .trailer-btn { width: 100%; background: #fff5f5; border: 1px solid #f5c6c6; border-radius: 6px; padding: 6px 0; font-size: 10px; font-weight: 700; color: #990000; cursor: pointer; text-align: center; transition: background 0.2s; }
+        .trailer-btn:hover { background: #ffe3e3; }
+        
+        .order-container { background: #fdfbf7; border-top: 8px solid #f3efe6; padding: 18px 16px; }
+        .form-title { font-size: 16px; font-weight: 800; margin-bottom: 14px; color: #990000; border-bottom: 2px solid #e2d7c1; padding-bottom: 6px; }
+        .form-group { margin-bottom: 12px; }
+        .form-label { display: block; font-size: 12px; font-weight: 700; color: #4a4238; margin-bottom: 4px; }
+        .form-control { width: 100%; padding: 10px 12px; background: #ffffff; border: 1px solid #d4c5a9; border-radius: 8px; font-size: 13px; color: #1a1a1a; }
+        .form-control:focus { outline: none; border-color: #990000; box-shadow: 0 0 5px rgba(153,0,0,0.2); }
+        
+        .price-preview { background: #fff5f5; border: 1px solid #f5c6c6; border-radius: 8px; padding: 10px 12px; font-size: 12px; color: #990000; margin-top: 8px; font-weight: 700; line-height: 1.5; }
+        .submit-btn { width: 100%; background-color: #990000; color: white; padding: 14px; border: none; border-radius: 10px; font-size: 14px; font-weight: 800; cursor: pointer; margin-top: 15px; box-shadow: 0 4px 12px rgba(153,0,0,0.3); text-transform: uppercase; }
+        .submit-btn:hover { background-color: #7a0000; }
+        .submit-btn:disabled { background-color: #ccc; cursor: not-allowed; box-shadow: none; color: #666; }
+
+        /* Modal Trailer YouTube */
+        .modal-overlay { display: none; position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: rgba(0, 0, 0, 0.85); z-index: 1000; justify-content: center; align-items: center; padding: 20px; }
+        .modal-content { width: 100%; max-width: 450px; background: #000; border-radius: 12px; overflow: hidden; position: relative; border: 2px solid #990000; }
+        .close-modal { position: absolute; top: 10px; right: 15px; color: white; font-size: 24px; font-weight: bold; cursor: pointer; z-index: 1010; }
+        .video-container { position: relative; width: 100%; padding-bottom: 56.25%; height: 0; }
+        .video-container iframe { position: absolute; top: 0; left: 0; width: 100%; height: 100%; border: none; }
+    </style>
+</head>
+<body>
+
+    <div class="phone-container">
+        <!-- Top Bar -->
+        <div class="top-bar">
+            <div class="brand-title">MOVIE PROMO.id</div>
+            <div class="top-status" id="statusToko">Mengecek Jadwal...</div>
+        </div>
+
+        <!-- Banner Promosi (Nama File Asli) -->
+        <div class="banner-container">
+            <div class="banner-scroll" id="bannerScroll">
+                <div class="banner-slide" style="background-image: url('IMG_9700.jpg');"></div>
+                <div class="banner-slide" style="background-image: url('IMG_9701.jpg');"></div>
+                <div class="banner-slide" style="background-image: url('IMG_9702.jpeg');"></div>
+                <div class="banner-slide" style="background-image: url('IMG_9703.jpg');"></div>
+            </div>
+        </div>
+
+        <!-- Info Rumus (Diskon 30% + Jastip) -->
+        <div class="promo-info-box">
+            <b>Format Harga Pre-Order:</b><br>
+            Harga 2 Tiket diskon 30% (+ Admin Jastip)<br>
+            <i>(Total di bawah sudah otomatis dihitung termasuk fee admin Rp 5.000)</i>
+        </div>
+
+        <div class="section-header">
+            <div class="section-title">Sedang Tayang</div>
+        </div>
+
+        <!-- Daftar Poster Film Asli & Tombol Trailer -->
+        <div class="movies-horizontal-scroll">
+            <div class="movie-card-tix">
+                <img src="IMG_9694.jpg" class="movie-poster-tix" onclick="pilihFilm('Kado Untuk Ibu')" alt="Kado Untuk Ibu">
+                <div class="movie-title-tix" onclick="pilihFilm('Kado Untuk Ibu')">Kado Untuk Ibu</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+            
+            <div class="movie-card-tix">
+                <img src="IMG_9688.jpg" class="movie-poster-tix" onclick="pilihFilm('Dan Bandung')" alt="Dan Bandung">
+                <div class="movie-title-tix" onclick="pilihFilm('Dan Bandung')">Dan Bandung</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+
+            <div class="movie-card-tix">
+                <img src="IMG_9693.jpg" class="movie-poster-tix" onclick="pilihFilm('Paket Santet')" alt="Paket Santet">
+                <div class="movie-title-tix" onclick="pilihFilm('Paket Santet')">Paket Santet</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+
+            <div class="movie-card-tix">
+                <img src="IMG_9690.jpg" class="movie-poster-tix" onclick="pilihFilm('Ketok Mejik')" alt="Ketok Mejik">
+                <div class="movie-title-tix" onclick="pilihFilm('Ketok Mejik')">Ketok Mejik</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+
+            <div class="movie-card-tix">
+                <img src="IMG_9692.jpg" class="movie-poster-tix" onclick="pilihFilm('Perumahan Laddaland')" alt="Laddaland">
+                <div class="movie-title-tix" onclick="pilihFilm('Perumahan Laddaland')">Laddaland</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+
+            <div class="movie-card-tix">
+                <img src="IMG_9686.jpg" class="movie-poster-tix" onclick="pilihFilm('Baby Udon')" alt="Baby Udon">
+                <div class="movie-title-tix" onclick="pilihFilm('Baby Udon')">Baby Udon</div>
+                <div class="movie-tag-tix">Promo 2 Tiket</div>
+                <button class="trailer-btn" onclick="bukaTrailer('dQw4w9WgXcQ')">▶ Lihat Trailer</button>
+            </div>
+        </div>
+
+        <!-- Form Pemesanan -->
+        <div class="order-container">
+            <div class="form-title">Form Pemesanan Tiket</div>
+            <div id="peringatanJadwal" style="font-size: 12px; color: #990000; font-weight: bold; margin-bottom: 10px; background: #fff5f5; padding: 8px; border-radius: 6px; display: none;"></div>
+            
+            <form id="formOrderTix">
+                <div class="form-group">
+                    <label class="form-label">Nama film :</label>
+                    <input type="text" class="form-control" id="namaFilm" placeholder="Klik poster di atas atau ketik manual" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Tgl nonton :</label>
+                    <input type="text" class="form-control" id="tglNonton" placeholder="Contoh: 18 Agustus 2026" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kota :</label>
+                    <input type="text" class="form-control" id="kota" placeholder="Contoh: Jakarta" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Nama Cgv / Bioskop :</label>
+                    <input type="text" class="form-control" id="namaCgv" placeholder="Contoh: CGV Grand Indonesia" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Jam tayang :</label>
+                    <input type="text" class="form-control" id="jamTayang" placeholder="Contoh: 14.30 WIB" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Kursi :</label>
+                    <input type="text" class="form-control" id="kursi" placeholder="Contoh: D5, D6" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Jumlah tiket :</label>
+                    <input type="text" class="form-control" id="jumlahTiket" placeholder="Contoh: 2 Tiket" required>
+                </div>
+                <div class="form-group">
+                    <label class="form-label">Harga normal satuan :</label>
+                    <input type="number" class="form-control" id="hargaNormal" placeholder="Contoh: 48000" oninput="hitungTotal()" required>
+                    <div class="price-preview" id="previewTotal">
+                        Total Pembayaran: Rp 0<br>
+                        <span style="font-size: 10px; font-weight: normal; color: #666;">(Termasuk diskon 30% + Fee Admin 5k)</span>
+                    </div>
+                </div>
+
+                <button type="submit" class="submit-btn" id="btnKirim">
+                    Kirim Order ke WhatsApp
+                </button>
+            </form>
+        </div>
+    </div>
+
+    <!-- Modal YouTube -->
+    <div class="modal-overlay" id="trailerModal" onclick="tutupTrailer(event)">
+        <div class="modal-content">
+            <span class="close-modal" onclick="tutupTrailerModal()">&times;</span>
+            <div class="video-container">
+                <iframe id="youtubeIframe" src="" allowfullscreen></iframe>
+            </div>
+        </div>
+    </div>
+
+    <!-- === BAGIAN JAVASCRIPT (LOGIKA) === -->
+    <script>
+        const nomorAdmin = "62882000478273"; 
+        const untungJastip = 5000; // Keuntungan bersih lu per order (5k)
+
+        // Logika Jadwal Otomatis (Senin-Minggu)
+        function cekJadwalToko() {
+            const sekarang = new Date();
+            const hari = sekarang.getDay(); 
+            const jam = sekarang.getHours();
+            const menit = sekarang.getMinutes();
+            const waktuMenit = jam * 60 + menit;
+
+            const statusEl = document.getElementById('statusToko');
+            const peringatanEl = document.getElementById('peringatanJadwal');
+            const btnKirim = document.getElementById('btnKirim');
+
+            let statusTeks = ""; let isTutup = false; let pesanPeringatan = "";
+
+            if (hari >= 1 && hari <= 4) { // Senin-Kamis
+                if (waktuMenit >= 360 && waktuMenit < 840) { // 06:00-14:00
+                    statusTeks = "🟡 PRE-ORDER BESOK"; pesanPeringatan = "⏰ Jam 06.00-14.00: Hanya melayani Pre-Order untuk besok dan seterusnya.";
+                } else if (waktuMenit >= 840 && waktuMenit < 1320) { // 14:00-22:00
+                    statusTeks = "🟢 BUKA"; pesanPeringatan = "✨ Buka: Melayani tiket hari ini & Pre-order.";
+                } else { isTutup = true; }
+            } else if (hari === 5) { // Jumat
+                if (waktuMenit >= 360 && waktuMenit < 660) { // 06:00-11:00
+                    statusTeks = "🟡 PRE-ORDER BESOK"; pesanPeringatan = "⏰ Jam 06.00-11.00 (Jumat): Hanya melayani Pre-Order untuk besok dan seterusnya.";
+                } else if (waktuMenit >= 660 && waktuMenit < 1320) { // 11:00-22:00
+                    statusTeks = "🟢 BUKA"; pesanPeringatan = "✨ Buka: Melayani tiket hari ini & Pre-order.";
+                } else { isTutup = true; }
+            } else { // Sabtu-Minggu
+                if (waktuMenit >= 360 && waktuMenit < 1320) { // 06:00-22:00
+                    statusTeks = "🟢 BUKA"; pesanPeringatan = "✨ Weekend Buka: Melayani tiket hari ini & Pre-order.";
+                } else { isTutup = true; }
+            }
+
+            if (isTutup) {
+                statusEl.innerText = "🔴 TUTUP"; statusEl.style.background = "#ffcccc"; statusEl.style.color = "#990000";
+                peringatanEl.style.display = "block"; peringatanEl.innerText = "⛔ Toko Tutup (Jam 22.00 - 06.00). Silakan order kembali besok pagi.";
+                btnKirim.disabled = true; btnKirim.innerText = "Order Ditutup Sementara";
+            } else {
+                statusEl.innerText = statusTeks; statusEl.style.background = "#d4edda"; statusEl.style.color = "#155724";
+                peringatanEl.style.display = "block"; peringatanEl.innerText = pesanPeringatan;
+                btnKirim.disabled = false; btnKirim.innerText = "Kirim Order ke WhatsApp";
+            }
+        }
+        cekJadwalToko(); setInterval(cekJadwalToko, 60000);
+
+        // Buka Trailer YouTube
+        function bukaTrailer(youtubeId) {
+            document.getElementById('trailerModal').style.display = 'flex';
+            document.getElementById('youtubeIframe').src = `https://www.youtube.com/embed/${youtubeId}?autoplay=1`;
+        }
+        function tutupTrailerModal() {
+            document.getElementById('trailerModal').style.display = 'none';
+            document.getElementById('youtubeIframe').src = "";
+        }
+        function tutupTrailer(e) { if (e.target.id === 'trailerModal') tutupTrailerModal(); }
+
+        // Slider Banner Otomatis
+        const bannerScroll = document.getElementById('bannerScroll');
+        let currentIndex = 0;
+        setInterval(() => {
+            currentIndex = (currentIndex + 1) % 4;
+            bannerScroll.scrollTo({ left: bannerScroll.clientWidth * currentIndex, behavior: 'smooth' });
+        }, 5000);
+
+        // Pilih Film Otomatis
+        function pilihFilm(judul) {
+            const inputFilm = document.getElementById('namaFilm');
+            inputFilm.value = judul;
+            inputFilm.scrollIntoView({ behavior: 'smooth', block: 'center' });
+            inputFilm.style.borderColor = '#990000'; inputFilm.style.background = '#fff5f5';
+            setTimeout(() => { inputFilm.style.background = '#ffffff'; }, 1000);
+        }
+
+        // Hitung Total (Diskon 30% + Untung 5k)
+        function hitungTotal() {
+            let hrg = document.getElementById('hargaNormal').value;
+            if(hrg) {
+                let totalNormal = hrg * 2;
+                let diskon = totalNormal * 0.30;
+                let hargaSetelahDiskon = totalNormal - diskon;
+                let finalSamaUntung = hargaSetelahDiskon + untungJastip; 
+                document.getElementById('previewTotal').innerHTML = `Total Pembayaran: <b>Rp ${finalSamaUntung.toLocaleString('id-ID')}</b><br><span style="font-size: 10px; font-weight: normal; color: #666;">(Termasuk diskon 30% + Fee Admin Rp 5.000)</span>`;
+            } else {
+                document.getElementById('previewTotal').innerHTML = `Total Pembayaran: Rp 0<br><span style="font-size: 10px; font-weight: normal; color: #666;">(Termasuk diskon 30% + Fee Admin Rp 5.000)</span>`;
+            }
+        }
+
+        // Kirim WA
+        document.getElementById('formOrderTix').addEventListener('submit', function(e) {
+            e.preventDefault();
+            let film = document.getElementById('namaFilm').value;
+            let tgl = document.getElementById('tglNonton').value;
+            let kota = document.getElementById('kota').value;
+            let cgv = document.getElementById('namaCgv').value;
+            let jam = document.getElementById('jamTayang').value;
+            let kursi = document.getElementById('kursi').value;
+            let jml = document.getElementById('jumlahTiket').value;
+            let hrg = document.getElementById('hargaNormal').value;
+
+            let totalNormal = hrg * 2;
+            let diskon = totalNormal * 0.30;
+            let hargaSetelahDiskon = totalNormal - diskon;
+            let finalSamaUntung = hargaSetelahDiskon + untungJastip;
+
+            let teksWA = `🕸️ *OPEN PRE ORDER TIKET 15 - 31 AGUSTUS 2026* 🕸️\n\n` +
+                         `Silahkan Isi format untuk order tiket⬇️\n` +
+                         `Nama film : ${film}\n` +
+                         `Tgl nonton : ${tgl}\n` +
+                         `Kota : ${kota}\n` +
+                         `Nama Cgv : ${cgv}\n` +
+                         `Jam tayang : ${jam}\n` +
+                         `Kursi : ${kursi}\n` +
+                         `Jumlah tiket : ${jml}\n` +
+                         `Harga normal : Rp ${Number(hrg).toLocaleString('id-ID')}\n` +
+                         `*Total Tagihan Bayar: Rp ${finalSamaUntung.toLocaleString('id-ID')}*`;
+
+            window.open(`https://api.whatsapp.com/send?phone=${nomorAdmin}&text=` + encodeURIComponent(teksWA), '_blank');
+        });
+    </script>
+</body>
+</html>
