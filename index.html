@@ -1,0 +1,405 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+        content="width=device-width, initial-scale=1.0">
+
+    <meta http-equiv="X-UA-Compatible"
+        content="IE=edge">
+
+    <title>MOVIE PROMO.ID</title>
+
+    <meta name="description"
+        content="Jastip Tiket Bioskop Murah XXI, CGV & Cinepolis">
+
+    <meta name="theme-color"
+        content="#0f1115">
+
+    <link rel="icon"
+        href="assets/logo/logo.png">
+
+    <!-- GOOGLE FONT -->
+
+    <link rel="preconnect"
+        href="https://fonts.googleapis.com">
+
+    <link rel="preconnect"
+        href="https://fonts.gstatic.com"
+        crossorigin>
+
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700;800&display=swap"
+        rel="stylesheet">
+
+    <!-- ICON -->
+
+    <link rel="stylesheet"
+        href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- CSS -->
+
+    <link rel="stylesheet"
+        href="style.css">
+
+</head>
+
+<body>
+
+
+
+<!-- ================================= -->
+
+<!-- LOADING SCREEN -->
+
+<!-- ================================= -->
+
+<div id="loading">
+
+    <div class="loading-logo">
+
+        🎬
+
+    </div>
+
+    <h1>
+
+        MOVIE PROMO.ID
+
+    </h1>
+
+    <span>
+
+        Loading...
+
+    </span>
+
+</div>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- BACKGROUND -->
+
+<!-- ================================= -->
+
+<div class="background-image"></div>
+
+<div class="background-overlay"></div>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- HEADER -->
+
+<!-- ================================= -->
+
+<header>
+
+    <nav class="navbar glass">
+
+        <div class="logo">
+
+            🎬
+
+            <span>
+
+                MOVIE PROMO.ID
+
+            </span>
+
+        </div>
+
+
+
+        <button
+            class="status-btn"
+            id="statusButton">
+
+            🟢 OPEN
+
+        </button>
+
+    </nav>
+
+</header>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- HERO -->
+
+<!-- ================================= -->
+
+<section class="hero">
+
+    <div class="hero-content">
+
+        <h1>
+
+            Promo Tiket Bioskop
+
+            <br>
+
+            Paling Murah
+
+        </h1>
+
+        <p>
+
+            XXI • CGV • Cinepolis
+
+        </p>
+
+
+
+        <div class="search glass">
+
+            <i class="fa-solid fa-magnifying-glass"></i>
+
+            <input
+
+                type="text"
+
+                id="searchMovie"
+
+                placeholder="Cari Film Favoritmu...">
+
+        </div>
+
+
+
+        <div class="quote glass">
+
+            <i class="fa-solid fa-quote-left"></i>
+
+            <span id="quoteText">
+
+                Loading Quote...
+
+            </span>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- STATUS -->
+
+<!-- ================================= -->
+
+<section class="status-section">
+
+    <div class="glass status-card">
+
+        <h2 id="statusTitle">
+
+            🟢 OPEN
+
+        </h2>
+
+        <p id="statusDescription">
+
+            Customer Service sedang Online.
+
+        </p>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- BANNER -->
+
+<!-- ================================= -->
+
+<section class="banner-section">
+
+    <div class="banner-slider glass">
+
+        <div class="slides">
+
+            <img src="assets/banner/banner1.jpg">
+
+            <img src="assets/banner/banner2.jpg">
+
+            <img src="assets/banner/banner3.jpg">
+
+            <img src="assets/banner/banner4.jpg">
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- BIOSKOP -->
+
+<!-- ================================= -->
+
+<section class="bioskop-section">
+
+    <div class="glass bioskop-pill">
+
+        <button
+            class="bioskop active"
+            data-bioskop="xxi">
+
+            XXI
+
+        </button>
+
+        <button
+            class="bioskop"
+            data-bioskop="cgv">
+
+            CGV
+
+        </button>
+
+        <button
+            class="bioskop"
+            data-bioskop="cinepolis">
+
+            Cinepolis
+
+        </button>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- WEBSITE STATUS -->
+
+<!-- ================================= -->
+
+<section class="website-info">
+
+    <div class="glass info-box">
+
+        <div class="info-icon">
+
+            📢
+
+        </div>
+
+        <div>
+
+            <h3>
+
+                Informasi
+
+            </h3>
+
+            <p id="websiteInformation">
+
+                Loading...
+
+            </p>
+
+        </div>
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- TRENDING -->
+
+<!-- ================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+
+            🔥 Trending Minggu Ini
+
+        </h2>
+
+        <a href="#">
+
+            Lihat Semua
+
+        </a>
+
+    </div>
+
+    <div
+        class="movie-grid"
+        id="trendingMovies">
+
+    </div>
+
+</section>
+
+
+
+
+
+<!-- ================================= -->
+
+<!-- MOVIE -->
+
+<!-- ================================= -->
+
+<section class="section">
+
+    <div class="section-header">
+
+        <h2>
+
+            🎬 Semua Film
+
+        </h2>
+
+    </div>
+
+    <div
+        class="movie-grid"
+        id="movieGrid">
+
+    </div>
+
+</section>
